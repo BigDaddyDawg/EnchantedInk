@@ -1,11 +1,11 @@
-const CACHE_NAME = "enchantedink-static-v1";
+const CACHE_NAME = "enchantedink-static-v2";
 const CORE_ASSETS = [
   "./",
   "index.html",
-  "styles.css",
-  "app.js",
-  "manifest.webmanifest",
-  "icon.svg",
+  "styles.css?v=2",
+  "app.js?v=2",
+  "manifest.webmanifest?v=2",
+  "icon.svg?v=2",
   "icon-192.png",
   "icon-512.png",
   "apple-touch-icon.png",

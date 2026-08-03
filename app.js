@@ -78,7 +78,7 @@
     if (!("serviceWorker" in navigator)) return;
     window.addEventListener("load", () => {
       navigator.serviceWorker
-        .register("service-worker.js?v=1")
+        .register("service-worker.js?v=2")
         .then((reg) => {
           if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
           reg.update().catch(() => {});

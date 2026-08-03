@@ -10,13 +10,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Enchanted Ink" />
   <title>Enchanted Ink · Lorcana Gallery</title>
-  <link rel="manifest" href="manifest.webmanifest?v=1" />
-  <link rel="icon" href="icon.svg?v=1" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=1" />
+  <link rel="manifest" href="manifest.webmanifest?v=2" />
+  <link rel="icon" href="icon.svg?v=2" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
   <div class="sky" aria-hidden="true">
@@ -25,6 +25,15 @@
     <div class="aurora aurora-b"></div>
     <div class="vignette"></div>
   </div>
+
+  <nav class="tabs" aria-label="Gallery sections">
+    <button type="button" class="tab is-active" data-tab="collection" id="tabCollection">Collection</button>
+    <button type="button" class="tab" data-tab="wishlist" id="tabWishlist">
+      Wishlist
+      <span class="tab-count" id="wishTabCount" hidden>0</span>
+    </button>
+    <button type="button" class="tab" data-tab="coming" id="tabComing">Coming Soon</button>
+  </nav>
 
   <header class="hero">
     <div class="hero-inner">
@@ -35,15 +44,6 @@
     </div>
     <div class="hero-glow" aria-hidden="true"></div>
   </header>
-
-  <nav class="tabs" aria-label="Gallery sections">
-    <button type="button" class="tab is-active" data-tab="collection" id="tabCollection">The Collection</button>
-    <button type="button" class="tab" data-tab="wishlist" id="tabWishlist">
-      Wishlist
-      <span class="tab-count" id="wishTabCount" hidden>0</span>
-    </button>
-    <button type="button" class="tab" data-tab="coming" id="tabComing">Coming Soon</button>
-  </nav>
 
   <div id="panelCollection">
   <section class="favorites" aria-label="Favorite stories">
@@ -193,6 +193,6 @@
     </div>
   </dialog>
 
-  <script src="app.js" defer></script>
+  <script src="app.js?v=2" defer></script>
 </body>
 </html>

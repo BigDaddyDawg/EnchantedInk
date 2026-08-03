@@ -101,11 +101,11 @@ body {
 /* —— Hero —— */
 .hero {
   position: relative;
-  min-height: 100svh;
+  min-height: calc(100svh - 4.5rem);
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 4rem 1.5rem 5rem;
+  padding: 2rem 1.5rem 5rem;
   overflow: hidden;
 }
 
@@ -194,11 +194,15 @@ body {
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 0.6rem;
-  padding: 0 1rem 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0.65rem 0.75rem;
+  padding-top: calc(0.65rem + env(safe-area-inset-top, 0px));
   position: sticky;
-  top: 0.5rem;
-  z-index: 30;
+  top: 0;
+  z-index: 40;
+  background: linear-gradient(180deg, rgba(7, 17, 31, 0.92), rgba(7, 17, 31, 0.72) 70%, transparent);
+  backdrop-filter: blur(14px);
 }
 
 .tab {
@@ -210,8 +214,8 @@ body {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-size: 0.78rem;
-  padding: 0.8rem 1.35rem;
+  font-size: 0.72rem;
+  padding: 0.7rem 1.05rem;
   border-radius: 999px;
   cursor: pointer;
   transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
