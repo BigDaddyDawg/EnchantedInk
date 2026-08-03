@@ -1,0 +1,9 @@
+{
+  "name": "enchanted-ink",
+  "private": true,
+  "description": "Magical Disney Lorcana card gallery",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "refresh-data": "python scripts/refresh_data.py"
+  }
+}
