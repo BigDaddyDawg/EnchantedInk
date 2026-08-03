@@ -3,6 +3,8 @@
   const WISHLIST_KEY = "enchantedink_wishlist_v1";
   const NEWS_URL = "https://www.disneylorcana.com/en-US/news/";
   const LIVE_NEWS_URL = `https://r.jina.ai/http://www.disneylorcana.com/en-US/news/`;
+  const LORCAST_CARD_URL = "https://api.lorcast.com/v0/cards";
+  const PRICE_CACHE_TTL_MS = 60 * 60 * 1000;
   const FAV_PICKS = {
     "Toy Story": ["Woody", "Buzz Lightyear", "Jessie"],
     "Winnie the Pooh": ["Winnie the Pooh", "Tigger", "Piglet"],
@@ -31,6 +33,9 @@
     modalSet: document.getElementById("modalSet"),
     modalType: document.getElementById("modalType"),
     modalColor: document.getElementById("modalColor"),
+    modalPriceRow: document.getElementById("modalPriceRow"),
+    modalPrice: document.getElementById("modalPrice"),
+    modalPriceNote: document.getElementById("modalPriceNote"),
     modalWish: document.getElementById("modalWish"),
     panelCollection: document.getElementById("panelCollection"),
     panelWishlist: document.getElementById("panelWishlist"),
@@ -67,6 +72,11 @@
   let wishlist = new Set();
   /** @type {string | null} */
   let modalCardId = null;
+  /** @type {any | null} */
+  let modalCard = null;
+  let modalPriceToken = 0;
+  /** @type {Map<string, { at: number, text: string, note: string }>} */
+  const priceCache = new Map();
   let activeTab = "collection";
   /** @type {ReturnType<typeof window.FamilyListSync.create> | null} */
   let wishSync = null;
@@ -130,7 +140,10 @@
         wishlist = new Set(ids.map(String));
         updateWishChrome();
         if (activeTab === "wishlist") renderWishlist();
-        if (modalCardId) syncModalWishBtn();
+        if (modalCardId) {
+          syncModalWishBtn();
+          refreshModalPrice();
+        }
       },
     });
     wishlist = await wishSync.hydrate(wishlist);
@@ -167,8 +180,87 @@
     syncWishButtons(key);
     updateWishChrome();
     if (activeTab === "wishlist") renderWishlist();
-    if (modalCardId === key) syncModalWishBtn();
+    if (modalCardId === key) {
+      syncModalWishBtn();
+      refreshModalPrice();
+    }
     return wishlist.has(key);
+  }
+
+  function formatUsd(value) {
+    const n = Number(value);
+    if (!Number.isFinite(n)) return null;
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: n >= 100 ? 0 : 2,
+    }).format(n);
+  }
+
+  function formatMarketPrices(prices, rarity) {
+    const usd = formatUsd(prices?.usd);
+    const foil = formatUsd(prices?.usd_foil);
+    const enchanted = /enchanted|epic|iconic/i.test(String(rarity || ""));
+    if (enchanted && foil) return { text: foil, note: "Approx. foil market · Lorcast" };
+    if (usd && foil) return { text: `${usd} · Foil ${foil}`, note: "Approx. current selling · Lorcast" };
+    if (usd) return { text: usd, note: "Approx. current selling · Lorcast" };
+    if (foil) return { text: foil, note: "Approx. foil market · Lorcast" };
+    return null;
+  }
+
+  function setModalPriceState(text, note, visible) {
+    if (!els.modalPriceRow || !els.modalPrice) return;
+    els.modalPriceRow.hidden = !visible;
+    els.modalPrice.textContent = text;
+    if (els.modalPriceNote) els.modalPriceNote.textContent = note;
+  }
+
+  function refreshModalPrice() {
+    if (!modalCard || !isWishable(modalCard.id) || !isWished(modalCard.id)) {
+      setModalPriceState("—", "Approx. current selling · Lorcast", false);
+      return;
+    }
+    loadModalPrice(modalCard);
+  }
+
+  async function loadModalPrice(card) {
+    const key = String(card.id);
+    const token = ++modalPriceToken;
+    const cached = priceCache.get(key);
+    if (cached && Date.now() - cached.at < PRICE_CACHE_TTL_MS) {
+      setModalPriceState(cached.text, cached.note, true);
+      return;
+    }
+
+    const setCode = card.setCode != null ? String(card.setCode) : "";
+    const number = card.number != null ? String(card.number) : "";
+    if (!setCode || !number) {
+      setModalPriceState("Unavailable", "No market match for this card yet", true);
+      return;
+    }
+
+    setModalPriceState("Looking up…", "Approx. current selling · Lorcast", true);
+
+    try {
+      const res = await fetch(`${LORCAST_CARD_URL}/${encodeURIComponent(setCode)}/${encodeURIComponent(number)}`);
+      if (token !== modalPriceToken || modalCardId !== key) return;
+      if (!res.ok) {
+        setModalPriceState("Unavailable", "No live listing found for this print", true);
+        return;
+      }
+      const data = await res.json();
+      const formatted = formatMarketPrices(data.prices, card.rarity || data.rarity);
+      if (!formatted) {
+        setModalPriceState("Unavailable", "No recent selling price yet", true);
+        return;
+      }
+      priceCache.set(key, { at: Date.now(), text: formatted.text, note: formatted.note });
+      setModalPriceState(formatted.text, formatted.note, true);
+    } catch (err) {
+      if (token !== modalPriceToken || modalCardId !== key) return;
+      console.warn("Market price lookup failed", err);
+      setModalPriceState("Unavailable", "Couldn’t reach price data right now", true);
+    }
   }
 
   function fillFilters() {
@@ -724,6 +816,7 @@
 
   function openModal(card) {
     modalCardId = String(card.id);
+    modalCard = card;
     els.modalImg.src = card.full || card.thumb;
     els.modalImg.alt = card.fullName;
     els.modalStory.textContent = card.story || "Lorcana";
@@ -737,6 +830,7 @@
       els.modalWish.hidden = !isWishable(card.id);
       syncModalWishBtn();
     }
+    refreshModalPrice();
     if (typeof els.modal.showModal === "function") els.modal.showModal();
   }
 

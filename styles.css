@@ -749,6 +749,24 @@ body {
   color: var(--gold-soft);
 }
 
+.modal-price-row {
+  grid-column: 1 / -1;
+}
+
+.modal-price-row[hidden] {
+  display: none;
+}
+
+.modal-price-note {
+  margin: 0.35rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  font-family: var(--font-body, inherit);
+  font-style: normal;
+  text-transform: none;
+}
+
 /* —— Footer —— */
 .site-footer {
   width: min(1180px, calc(100% - 2rem));
