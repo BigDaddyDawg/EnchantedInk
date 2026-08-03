@@ -118,7 +118,7 @@
   <section id="panelWishlist" class="wishlist" hidden>
     <div class="section-head">
       <h2>Wishlist</h2>
-      <p id="wishCountLabel">Tap the heart on any card to save it here — it stays on this phone.</p>
+      <p id="wishCountLabel">Shared family wishlist — same list on every phone.</p>
     </div>
     <div class="filters wish-filters" id="wishFilters">
       <label class="search-wrap">
@@ -193,6 +193,9 @@
     </div>
   </dialog>
 
-  <script src="app.js?v=2" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="family-vault-config.js"></script>
+  <script src="family-list-sync.js?v=shared2"></script>
+  <script src="app.js?v=shared2" defer></script>
 </body>
 </html>

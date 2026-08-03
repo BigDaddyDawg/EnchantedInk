@@ -32,7 +32,7 @@ Sources of truth:
 
 Refresh behavior:
 - When she opens **Coming Soon**, the app reloads `data/coming-soon.json` and tries a **live** pull of official news
-- GitHub Actions also refreshes the snapshot twice a week (Sun/Wed) — or run locally:
+- GitHub Actions refreshes Coming Soon twice a week (Sun/Wed) and runs a **full catalogue refresh every Monday** (`Refresh Catalog Weekly`) — or run locally:
 
 ```powershell
 python scripts/refresh_coming_soon.py
@@ -42,9 +42,7 @@ Then commit + push, or trigger the **Refresh Coming Soon** workflow from GitHub 
 
 ## Wishlist
 
-Saved cards live in the browser on her phone (`localStorage`), so they stay after she closes the tab. Open the **Wishlist** tab to browse them, or tap the heart on any card / use **Add to wishlist** in the detail view.
-
-Note: clearing site data, switching browsers, or using a different phone starts a fresh list.
+Wishlists sync to the **Family Vault** (shared Supabase hub) across family phones, with a local cache for offline use. Open the **Wishlist** tab, or tap the heart on any card / **Add to wishlist** in the detail view.
 
 ## Credit
 

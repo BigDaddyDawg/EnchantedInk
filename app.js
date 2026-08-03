@@ -68,6 +68,8 @@
   /** @type {string | null} */
   let modalCardId = null;
   let activeTab = "collection";
+  /** @type {ReturnType<typeof window.FamilyListSync.create> | null} */
+  let wishSync = null;
 
   initStars();
   loadWishlist();
@@ -105,6 +107,7 @@
       const res = await fetch("./data/cards.json");
       if (!res.ok) throw new Error(`Failed to load catalog (${res.status})`);
       catalog = await res.json();
+      await initFamilyVault();
       fillFilters();
       paintFavorites();
       bindUI();
@@ -115,6 +118,23 @@
       els.countLabel.textContent = "The ink wouldn’t settle. Try refreshing.";
       console.error(err);
     }
+  }
+
+  async function initFamilyVault() {
+    if (!window.FamilyListSync?.create) return;
+    wishSync = window.FamilyListSync.create({
+      app: "enchantedink",
+      listType: "wishlist",
+      storageKey: WISHLIST_KEY,
+      onRemoteChange: (ids) => {
+        wishlist = new Set(ids.map(String));
+        updateWishChrome();
+        if (activeTab === "wishlist") renderWishlist();
+        if (modalCardId) syncModalWishBtn();
+      },
+    });
+    wishlist = await wishSync.hydrate(wishlist);
+    wishSync.subscribe();
   }
 
   function loadWishlist() {
@@ -143,6 +163,7 @@
     if (wishlist.has(key)) wishlist.delete(key);
     else wishlist.add(key);
     saveWishlist();
+    if (wishSync) wishSync.setItem(key, wishlist.has(key));
     syncWishButtons(key);
     updateWishChrome();
     if (activeTab === "wishlist") renderWishlist();
@@ -331,7 +352,7 @@
     if (els.wishCountLabel) {
       els.wishCountLabel.textContent =
         n === 0
-          ? "Tap the heart on any card to save it here — it stays on this phone."
+          ? "Shared family wishlist — same list on every phone."
           : `${n.toLocaleString()} card${n === 1 ? "" : "s"} waiting to be found.`;
     }
   }
