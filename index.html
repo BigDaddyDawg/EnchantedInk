@@ -32,6 +32,10 @@
 
   <nav class="tabs" aria-label="Gallery sections">
     <button type="button" class="tab is-active" data-tab="collection" id="tabCollection">The Collection</button>
+    <button type="button" class="tab" data-tab="wishlist" id="tabWishlist">
+      Wishlist
+      <span class="tab-count" id="wishTabCount" hidden>0</span>
+    </button>
     <button type="button" class="tab" data-tab="coming" id="tabComing">Coming Soon</button>
   </nav>
 
@@ -105,6 +109,21 @@
   </main>
   </div>
 
+  <section id="panelWishlist" class="wishlist" hidden>
+    <div class="section-head">
+      <h2>Wishlist</h2>
+      <p id="wishCountLabel">Tap the heart on any card to save it here — it stays on this phone.</p>
+    </div>
+    <div class="filters wish-filters" id="wishFilters">
+      <label class="search-wrap">
+        <span class="sr-only">Search wishlist</span>
+        <input id="wishSearch" type="search" placeholder="Search your saved cards…" autocomplete="off" />
+      </label>
+    </div>
+    <div class="grid" id="wishGrid" aria-live="polite"></div>
+    <p class="empty" id="wishEmpty" hidden>No cards saved yet. Browse the collection and tap a heart to begin.</p>
+  </section>
+
   <section id="panelComing" class="coming" hidden>
     <div class="section-head">
       <h2>Coming Soon</h2>
@@ -163,6 +182,7 @@
             <dd id="modalColor"></dd>
           </div>
         </dl>
+        <button type="button" class="wish-toggle" id="modalWish" aria-pressed="false">Add to wishlist</button>
       </div>
     </div>
   </dialog>

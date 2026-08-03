@@ -36,6 +36,12 @@ python scripts/refresh_coming_soon.py
 
 Then commit + push, or trigger the **Refresh Coming Soon** workflow from GitHub Actions.
 
+## Wishlist
+
+Saved cards live in the browser on her phone (`localStorage`), so they stay after she closes the tab. Open the **Wishlist** tab to browse them, or tap the heart on any card / use **Add to wishlist** in the detail view.
+
+Note: clearing site data, switching browsers, or using a different phone starts a fresh list.
+
 ## Credit
 
 Fan project. Disney Lorcana and related marks are trademarks of Disney and Ravensburger. Not affiliated with Disney or Ravensburger.

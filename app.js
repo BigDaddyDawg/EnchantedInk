@@ -1,5 +1,6 @@
 (() => {
   const PAGE_SIZE = 48;
+  const WISHLIST_KEY = "enchantedink_wishlist_v1";
   const NEWS_URL = "https://www.disneylorcana.com/en-US/news/";
   const LIVE_NEWS_URL = `https://r.jina.ai/http://www.disneylorcana.com/en-US/news/`;
   const FAV_PICKS = {
@@ -7,6 +8,7 @@
     "Winnie the Pooh": ["Winnie the Pooh", "Tigger", "Piglet"],
     "Lilo & Stitch": ["Stitch", "Lilo", "Angel"],
   };
+  const HEART_SVG = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2s-6.7-4.2-9.1-8.1C1.2 9.4 2.1 6.4 5 5.4c1.8-.6 3.7.1 4.8 1.5C11 5.5 12.9 4.8 14.7 5.4c2.9 1 3.8 4 2.1 6.7-2.4 3.9-9.1 8.1-9.1 8.1z"/></svg>`;
 
   const els = {
     grid: document.getElementById("cardGrid"),
@@ -29,10 +31,18 @@
     modalSet: document.getElementById("modalSet"),
     modalType: document.getElementById("modalType"),
     modalColor: document.getElementById("modalColor"),
+    modalWish: document.getElementById("modalWish"),
     panelCollection: document.getElementById("panelCollection"),
+    panelWishlist: document.getElementById("panelWishlist"),
     panelComing: document.getElementById("panelComing"),
     tabCollection: document.getElementById("tabCollection"),
+    tabWishlist: document.getElementById("tabWishlist"),
     tabComing: document.getElementById("tabComing"),
+    wishGrid: document.getElementById("wishGrid"),
+    wishEmpty: document.getElementById("wishEmpty"),
+    wishSearch: document.getElementById("wishSearch"),
+    wishCountLabel: document.getElementById("wishCountLabel"),
+    wishTabCount: document.getElementById("wishTabCount"),
     comingStatus: document.getElementById("comingStatus"),
     comingRefresh: document.getElementById("comingRefresh"),
     upcomingSets: document.getElementById("upcomingSets"),
@@ -46,14 +56,21 @@
   let filtered = [];
   let shown = 0;
   let searchTimer = null;
+  let wishSearchTimer = null;
   let comingLoaded = false;
   let comingBusy = false;
   /** @type {any} */
   let comingData = null;
   /** @type {any[]} */
   let comingDisplayCards = [];
+  /** @type {Set<string>} */
+  let wishlist = new Set();
+  /** @type {string | null} */
+  let modalCardId = null;
+  let activeTab = "collection";
 
   initStars();
+  loadWishlist();
   boot();
 
   async function boot() {
@@ -65,11 +82,45 @@
       paintFavorites();
       bindUI();
       applyFilters();
-      maybeOpenComingFromHash();
+      updateWishChrome();
+      maybeOpenTabFromHash();
     } catch (err) {
       els.countLabel.textContent = "The ink wouldn’t settle. Try refreshing.";
       console.error(err);
     }
+  }
+
+  function loadWishlist() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(WISHLIST_KEY) || "[]");
+      wishlist = new Set((Array.isArray(raw) ? raw : []).map(String));
+    } catch {
+      wishlist = new Set();
+    }
+  }
+
+  function saveWishlist() {
+    try {
+      localStorage.setItem(WISHLIST_KEY, JSON.stringify([...wishlist]));
+    } catch (err) {
+      console.warn("Could not save wishlist", err);
+    }
+  }
+
+  function isWished(id) {
+    return wishlist.has(String(id));
+  }
+
+  function toggleWish(id) {
+    const key = String(id);
+    if (wishlist.has(key)) wishlist.delete(key);
+    else wishlist.add(key);
+    saveWishlist();
+    syncWishButtons(key);
+    updateWishChrome();
+    if (activeTab === "wishlist") renderWishlist();
+    if (modalCardId === key) syncModalWishBtn();
+    return wishlist.has(key);
   }
 
   function fillFilters() {
@@ -140,12 +191,16 @@
       });
     });
 
-    els.grid.addEventListener("click", onCardClick);
-    els.revealsGrid?.addEventListener("click", onCardClick);
+    els.grid.addEventListener("click", onGridClick);
+    els.wishGrid?.addEventListener("click", onGridClick);
+    els.revealsGrid?.addEventListener("click", onGridClick);
 
     els.modalClose.addEventListener("click", () => els.modal.close());
     els.modal.addEventListener("click", (e) => {
       if (e.target === els.modal) els.modal.close();
+    });
+    els.modalWish?.addEventListener("click", () => {
+      if (modalCardId) toggleWish(modalCardId);
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && els.modal.open) els.modal.close();
@@ -160,14 +215,27 @@
     io.observe(els.sentinel);
 
     els.tabCollection?.addEventListener("click", () => showTab("collection"));
+    els.tabWishlist?.addEventListener("click", () => showTab("wishlist"));
     els.tabComing?.addEventListener("click", () => showTab("coming"));
+    els.wishSearch?.addEventListener("input", () => {
+      clearTimeout(wishSearchTimer);
+      wishSearchTimer = setTimeout(renderWishlist, 160);
+    });
     els.comingRefresh?.addEventListener("click", () => loadComingSoon(true));
-    window.addEventListener("hashchange", maybeOpenComingFromHash);
+    window.addEventListener("hashchange", maybeOpenTabFromHash);
   }
 
-  function onCardClick(e) {
+  function onGridClick(e) {
+    const wishBtn = e.target.closest(".wish-btn");
+    if (wishBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const id = wishBtn.dataset.wishId;
+      if (id) toggleWish(id);
+      return;
+    }
     const btn = e.target.closest("[data-id]");
-    if (!btn) return;
+    if (!btn || btn.classList.contains("wish-btn")) return;
     const id = btn.dataset.id;
     const card =
       catalog.cards.find((c) => String(c.id) === id) ||
@@ -176,21 +244,139 @@
     if (card) openModal(card);
   }
 
-  function maybeOpenComingFromHash() {
-    if ((location.hash || "").toLowerCase().includes("coming")) showTab("coming");
+  function maybeOpenTabFromHash() {
+    const hash = (location.hash || "").toLowerCase();
+    if (hash.includes("wishlist")) showTab("wishlist");
+    else if (hash.includes("coming")) showTab("coming");
+    else if (hash.includes("collection")) showTab("collection");
   }
 
   function showTab(name) {
+    activeTab = name;
+    const collection = name === "collection";
+    const wishlistTab = name === "wishlist";
     const coming = name === "coming";
-    els.panelCollection.hidden = coming;
+
+    els.panelCollection.hidden = !collection;
+    if (els.panelWishlist) els.panelWishlist.hidden = !wishlistTab;
     els.panelComing.hidden = !coming;
-    els.tabCollection.classList.toggle("is-active", !coming);
+
+    els.tabCollection.classList.toggle("is-active", collection);
+    els.tabWishlist?.classList.toggle("is-active", wishlistTab);
     els.tabComing.classList.toggle("is-active", coming);
+
     if (coming) {
       history.replaceState(null, "", "#coming-soon");
       if (!comingLoaded) loadComingSoon(false);
+    } else if (wishlistTab) {
+      history.replaceState(null, "", "#wishlist");
+      renderWishlist();
     } else {
       history.replaceState(null, "", "#collection");
+    }
+  }
+
+  function syncWishButtons(id) {
+    const key = String(id);
+    const on = isWished(key);
+    const safe = typeof CSS !== "undefined" && CSS.escape ? CSS.escape(key) : key.replace(/"/g, '\\"');
+    document.querySelectorAll(`.wish-btn[data-wish-id="${safe}"]`).forEach((btn) => {
+      btn.classList.toggle("is-on", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.setAttribute("aria-label", on ? "Remove from wishlist" : "Add to wishlist");
+    });
+  }
+
+  function syncModalWishBtn() {
+    if (!els.modalWish || !modalCardId) return;
+    const on = isWished(modalCardId);
+    els.modalWish.classList.toggle("is-on", on);
+    els.modalWish.setAttribute("aria-pressed", on ? "true" : "false");
+    els.modalWish.textContent = on ? "Remove from wishlist" : "Add to wishlist";
+  }
+
+  function updateWishChrome() {
+    const n = wishlist.size;
+    if (els.wishTabCount) {
+      els.wishTabCount.hidden = n === 0;
+      els.wishTabCount.textContent = String(n);
+    }
+    if (els.wishCountLabel) {
+      els.wishCountLabel.textContent =
+        n === 0
+          ? "Tap the heart on any card to save it here — it stays on this phone."
+          : `${n.toLocaleString()} card${n === 1 ? "" : "s"} waiting to be found.`;
+    }
+  }
+
+  function makeCardTile(card, i = 0) {
+    const wrap = document.createElement("div");
+    wrap.className = "card-wrap";
+    wrap.style.animationDelay = `${Math.min(i, 12) * 28}ms`;
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "card";
+    btn.dataset.id = String(card.id);
+    btn.setAttribute("aria-label", `${card.fullName}, ${card.rarity}`);
+    btn.innerHTML = `
+      <img src="${escapeAttr(card.thumb || card.full)}" alt="" loading="lazy" decoding="async" width="367" height="512" />
+      <span class="card-badge">${escapeHtml(card.rarity || "")}</span>
+    `;
+    wrap.appendChild(btn);
+
+    if (isWishable(card.id)) {
+      const wish = document.createElement("button");
+      wish.type = "button";
+      wish.className = `wish-btn${isWished(card.id) ? " is-on" : ""}`;
+      wish.dataset.wishId = String(card.id);
+      wish.setAttribute("aria-pressed", isWished(card.id) ? "true" : "false");
+      wish.setAttribute("aria-label", isWished(card.id) ? "Remove from wishlist" : "Add to wishlist");
+      wish.innerHTML = HEART_SVG;
+      wrap.appendChild(wish);
+    }
+
+    return wrap;
+  }
+
+  function isWishable(id) {
+    return !String(id).startsWith("preview-");
+  }
+
+  function findCard(id) {
+    const key = String(id);
+    return (
+      catalog.cards.find((c) => String(c.id) === key) ||
+      comingDisplayCards.find((c) => String(c.id) === key) ||
+      (comingData?.reveals || []).find((c) => String(c.id) === key) ||
+      null
+    );
+  }
+
+  function renderWishlist() {
+    if (!els.wishGrid) return;
+    const q = (els.wishSearch?.value || "").trim().toLowerCase();
+    const cards = [...wishlist]
+      .map(findCard)
+      .filter(Boolean)
+      .filter((c) => {
+        if (!q) return true;
+        const hay = `${c.fullName} ${c.name} ${c.version} ${c.story}`.toLowerCase();
+        return hay.includes(q);
+      });
+
+    els.wishGrid.innerHTML = "";
+    const frag = document.createDocumentFragment();
+    cards.forEach((card, i) => frag.appendChild(makeCardTile(card, i)));
+    els.wishGrid.appendChild(frag);
+
+    if (els.wishEmpty) {
+      const emptyMsg =
+        wishlist.size === 0
+          ? "No cards saved yet. Browse the collection and tap a heart to begin."
+          : "No saved cards match that search.";
+      els.wishEmpty.textContent = emptyMsg;
+      els.wishEmpty.hidden = cards.length !== 0;
     }
   }
 
@@ -429,17 +615,7 @@
         : "No early card art yet — as soon as Hyperia City (and friends) are teased, they’ll sparkle here.";
     els.revealsGrid.innerHTML = "";
     showCards.forEach((card, i) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "card";
-      btn.dataset.id = String(card.id);
-      btn.style.animationDelay = `${Math.min(i, 12) * 28}ms`;
-      btn.setAttribute("aria-label", `${card.fullName}, ${card.rarity}`);
-      btn.innerHTML = `
-        <img src="${escapeAttr(card.thumb || card.full)}" alt="" loading="lazy" decoding="async" width="367" height="512" />
-        <span class="card-badge">${escapeHtml(card.rarity || "Reveal")}</span>
-      `;
-      els.revealsGrid.appendChild(btn);
+      els.revealsGrid.appendChild(makeCardTile(card, i));
     });
   }
 
@@ -493,24 +669,13 @@
     if (shown >= filtered.length) return;
     const slice = filtered.slice(shown, shown + PAGE_SIZE);
     const frag = document.createDocumentFragment();
-    slice.forEach((card, i) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "card";
-      btn.dataset.id = String(card.id);
-      btn.style.animationDelay = `${Math.min(i, 12) * 28}ms`;
-      btn.setAttribute("aria-label", `${card.fullName}, ${card.rarity}`);
-      btn.innerHTML = `
-        <img src="${escapeAttr(card.thumb)}" alt="" loading="lazy" decoding="async" width="367" height="512" />
-        <span class="card-badge">${escapeHtml(card.rarity || "")}</span>
-      `;
-      frag.appendChild(btn);
-    });
+    slice.forEach((card, i) => frag.appendChild(makeCardTile(card, i)));
     els.grid.appendChild(frag);
     shown += slice.length;
   }
 
   function openModal(card) {
+    modalCardId = String(card.id);
     els.modalImg.src = card.full || card.thumb;
     els.modalImg.alt = card.fullName;
     els.modalStory.textContent = card.story || "Lorcana";
@@ -520,6 +685,10 @@
     els.modalSet.textContent = card.setName || card.setCode || "—";
     els.modalType.textContent = card.type || "—";
     els.modalColor.textContent = card.color || "—";
+    if (els.modalWish) {
+      els.modalWish.hidden = !isWishable(card.id);
+      syncModalWishBtn();
+    }
     if (typeof els.modal.showModal === "function") els.modal.showModal();
   }
 

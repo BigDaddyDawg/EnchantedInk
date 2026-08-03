@@ -229,6 +229,32 @@ body {
   box-shadow: 0 10px 28px rgba(232, 197, 106, 0.28);
 }
 
+.tab-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  margin-left: 0.35rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #1a1208;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.tab.is-active .tab-count {
+  background: rgba(26, 18, 8, 0.18);
+  color: #1a1208;
+}
+
+.tab:not(.is-active) .tab-count {
+  color: var(--gold-soft);
+  background: rgba(232, 197, 106, 0.18);
+}
+
 /* —— Sections —— */
 .section-head {
   text-align: center;
@@ -250,6 +276,7 @@ body {
 
 .favorites,
 .gallery,
+.wishlist,
 .coming {
   width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;
@@ -428,8 +455,14 @@ body {
   gap: 1rem;
 }
 
+.card-wrap {
+  position: relative;
+  animation: cardIn 0.55s ease both;
+}
+
 .card {
   position: relative;
+  width: 100%;
   border: 0;
   padding: 0;
   background: transparent;
@@ -439,9 +472,10 @@ body {
   aspect-ratio: 367 / 512;
   transform: translateZ(0);
   transition: transform 0.28s ease, box-shadow 0.28s ease;
-  animation: cardIn 0.55s ease both;
 }
 
+.card-wrap:hover .card,
+.card-wrap:focus-within .card,
 .card:hover,
 .card:focus-visible {
   transform: translateY(-7px) scale(1.02);
@@ -476,10 +510,90 @@ body {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
+.card-wrap:hover .card-badge,
+.card-wrap:focus-within .card-badge,
 .card:hover .card-badge,
 .card:focus-visible .card-badge {
   opacity: 1;
   transform: translateY(0);
+}
+
+.wish-btn {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  z-index: 3;
+  width: 2.15rem;
+  height: 2.15rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(232, 197, 106, 0.35);
+  border-radius: 999px;
+  padding: 0;
+  cursor: pointer;
+  color: var(--gold-soft);
+  background: rgba(8, 16, 30, 0.72);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.wish-btn svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+}
+
+.wish-btn:hover,
+.wish-btn:focus-visible {
+  transform: scale(1.08);
+  color: var(--gold);
+  border-color: rgba(232, 197, 106, 0.7);
+  outline: none;
+}
+
+.wish-btn.is-on {
+  color: #1a1208;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold) 55%, var(--honey));
+}
+
+.wish-btn.is-on svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.wish-filters {
+  margin-bottom: 1.25rem;
+}
+
+.wish-toggle {
+  margin-top: 1.25rem;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  color: var(--gold-soft);
+  background: rgba(8, 16, 30, 0.55);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.wish-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(232, 197, 106, 0.55);
+}
+
+.wish-toggle.is-on {
+  color: #1a1208;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold) 50%, var(--honey));
 }
 
 @keyframes cardIn {
@@ -846,6 +960,8 @@ body {
   .modal-art { max-width: 280px; margin: 0 auto; }
   .modal-meta { text-align: center; }
   .modal-facts { text-align: left; }
+  .tabs { flex-wrap: wrap; gap: 0.45rem; }
+  .tab { padding: 0.7rem 1rem; font-size: 0.72rem; }
 }
 
 @media (max-width: 560px) {
