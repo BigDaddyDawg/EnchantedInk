@@ -71,7 +71,34 @@
 
   initStars();
   loadWishlist();
+  registerServiceWorker();
   boot();
+
+  function registerServiceWorker() {
+    if (!("serviceWorker" in navigator)) return;
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("service-worker.js?v=1")
+        .then((reg) => {
+          if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
+          reg.update().catch(() => {});
+        })
+        .catch(() => {});
+
+      let refreshing = false;
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
+        if (refreshing) return;
+        refreshing = true;
+        window.location.reload();
+      });
+      navigator.serviceWorker.addEventListener("message", (event) => {
+        if (event.data && event.data.type === "ENCHANTEDINK_SW_UPDATED" && !refreshing) {
+          refreshing = true;
+          window.location.reload();
+        }
+      });
+    });
+  }
 
   async function boot() {
     try {

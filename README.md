@@ -16,6 +16,10 @@ python -m http.server 8080
 
 Then visit http://localhost:8080
 
+## Install on phone (PWA)
+
+Same pattern as Toploader — open the live site in Safari/Chrome, then **Add to Home Screen**. It installs as a standalone app with offline caching via the service worker.
+
 ## Data
 
 Card catalog is built from [LorcanaJSON](https://lorcanajson.org/) into `data/cards.json`.
