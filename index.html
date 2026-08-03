@@ -25,11 +25,17 @@
       <p class="eyebrow">A private gallery · made with love</p>
       <h1 class="brand">Enchanted Ink</h1>
       <p class="tagline">Every Disney Lorcana card, waiting to be found.</p>
-      <a class="cta" href="#gallery">Begin the journey</a>
+      <a class="cta" href="#collection">Begin the journey</a>
     </div>
     <div class="hero-glow" aria-hidden="true"></div>
   </header>
 
+  <nav class="tabs" aria-label="Gallery sections">
+    <button type="button" class="tab is-active" data-tab="collection" id="tabCollection">The Collection</button>
+    <button type="button" class="tab" data-tab="coming" id="tabComing">Coming Soon</button>
+  </nav>
+
+  <div id="panelCollection">
   <section class="favorites" aria-label="Favorite stories">
     <div class="section-head">
       <h2>Whispers from the Ink</h2>
@@ -60,7 +66,7 @@
     </div>
   </section>
 
-  <main id="gallery" class="gallery">
+  <main id="collection" class="gallery">
     <div class="section-head">
       <h2>The Full Collection</h2>
       <p id="countLabel">Loading every released card…</p>
@@ -97,6 +103,31 @@
     <div class="sentinel" id="sentinel" aria-hidden="true"></div>
     <p class="empty" id="emptyState" hidden>No cards match that spell. Try another search.</p>
   </main>
+  </div>
+
+  <section id="panelComing" class="coming" hidden>
+    <div class="section-head">
+      <h2>Coming Soon</h2>
+      <p id="comingStatus">Peeking into the next chapter of Lorcana…</p>
+      <button type="button" class="refresh-btn" id="comingRefresh">Refresh news &amp; reveals</button>
+    </div>
+
+    <div class="coming-block">
+      <h3 class="coming-label">Next sets on the horizon</h3>
+      <div class="set-rail" id="upcomingSets"></div>
+    </div>
+
+    <div class="coming-block">
+      <h3 class="coming-label">Fresh from the realm</h3>
+      <div class="news-list" id="newsList"></div>
+    </div>
+
+    <div class="coming-block">
+      <h3 class="coming-label">Newly revealed cards</h3>
+      <p class="coming-note" id="revealsNote">As Hyperia City and friends are teased, their cards will appear here.</p>
+      <div class="grid" id="revealsGrid"></div>
+    </div>
+  </section>
 
   <footer class="site-footer">
     <p>Enchanted Ink · fan gallery · card data via <a href="https://lorcanajson.org/" rel="noopener" target="_blank">LorcanaJSON</a></p>

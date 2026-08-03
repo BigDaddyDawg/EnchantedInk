@@ -1,0 +1,233 @@
+{
+  "generated": "2026-08-03T15:14:27Z",
+  "sources": {
+    "cards": "LorcanaJSON (https://lorcanajson.org/)",
+    "news": "https://www.disneylorcana.com/en-US/news/"
+  },
+  "upcomingSets": [
+    {
+      "code": "Q3",
+      "name": "Illumineer's Quest: The Great Hunny Rescue",
+      "releaseDate": "2026-10-01",
+      "prereleaseDate": "2026-10-01",
+      "hasAllCards": false,
+      "type": "quest",
+      "number": 3,
+      "cardCounts": {
+        "base": 0,
+        "nonBase": 0,
+        "promo": 0
+      },
+      "revealedCount": 0,
+      "blurb": "This magical willy, nilly, silly old bear glimmer knows that an adventure is always better when taken together. Add a few other Hunny characters to your team and he gives them the sweet treat of extra lore.",
+      "productUrl": "https://www.disneylorcana.com/en-US/product/great-hunny-rescue",
+      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/backrounds/ndvlmcqdex_1920x1080.jpg",
+      "gallery": [
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/backrounds/ndvlmcqdex_1920x1080.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/backrounds/ndvlmcqdex_1080x1350_updated.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/glimmers/zncpy9gvly_400x500.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/cards/en-final/en_2r4pagsgqj.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/glimmers/zlrty8afuk_400x500.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/great-hunny-rescue/en/cards/final/en_uygjnjnuav.png"
+      ]
+    },
+    {
+      "code": "14",
+      "name": "Hyperia City",
+      "releaseDate": "2026-10-23",
+      "prereleaseDate": "2026-10-16",
+      "hasAllCards": false,
+      "type": "expansion",
+      "number": 14,
+      "cardCounts": {
+        "base": 0,
+        "nonBase": 0,
+        "promo": 0
+      },
+      "revealedCount": 0,
+      "blurb": "Welcome to a town where metro meets fantasy! Here you can join the likes of heroes, princesses, and a magical wizard or two. Music and art bring these animated streets to life, but something nefarious is happening in the back alleys and waterways. Have a great visit, but keep an eye out for any funny business.",
+      "productUrl": "https://www.disneylorcana.com/en-US/product/hyperia-city",
+      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/pmemfhzh_1x1.jpg",
+      "prereleaseLabel": "October 16, 2026",
+      "releaseLabel": "October 23, 2026",
+      "gallery": [
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/pmemfhzh_1x1.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_u468hffab6.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_6s4w2snbfe.png"
+      ]
+    },
+    {
+      "code": "15",
+      "name": "Into the Inkdark",
+      "releaseDate": null,
+      "prereleaseDate": null,
+      "hasAllCards": false,
+      "type": "expansion",
+      "number": 15,
+      "cardCounts": {
+        "base": 0,
+        "nonBase": 0,
+        "promo": 0
+      },
+      "revealedCount": 0,
+      "blurb": "In the depths of the Inkdark, one meticulous plotter is devising a most ambitious plan. With his corrupt cohort fanning the flames of ambition, this villainous hothead is intent on becoming Lorcana's fastest-rising threat. Braving a perilous valley of giant glimmers and cavernous mines, you'll attempt to siphon off enough of his power to prevent disaster.",
+      "productUrl": "https://www.disneylorcana.com/en-US/product/into-the-inkdark",
+      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/s15-background/sqjdbc9ngl_1920x1080-3.jpg",
+      "gallery": [
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/s15-background/sqjdbc9ngl_1920x1080-3.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/sqjdbc9ngl_1x1-4.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/s15-background/primary_tvmdt6p3df.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/s15-logo/en_jbs83nhsz6.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/s15-logo/en_jbs83nhsz6.png"
+      ]
+    }
+  ],
+  "reveals": [],
+  "news": [
+    {
+      "title": "New Collection Quests in Paris and Hong Kong",
+      "date": "July 29, 2026",
+      "category": "News",
+      "summary": "Ravensburger is excited to announce two new events happening at Disney Parks this year where fans can participate in a Collection Quest, Scavenger Hunt, and more to acquire promotional cards, while supplies last.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/cq-hk--paris/93kedmfr8b_v3_1920x1080.jpg"
+    },
+    {
+      "title": "New Multiplayer Format Open Beta",
+      "date": "July 28, 2026",
+      "category": "News",
+      "summary": "A big announcement about Disney Lorcana.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/dlc_coconut_gencon_1920x1080.jpg"
+    },
+    {
+      "title": "Power Panda Pop!",
+      "date": "July 23, 2026",
+      "category": "News",
+      "summary": "Attack of the Vine! welcomes Turning Red, one of my favorite Pixar films, into the realm of Disney Lorcana.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/atv-turning-red-deck/s13-atv_sustain_turning-red-deck_assetsvje5welvdv_1920x1080.jpg"
+    },
+    {
+      "title": "Disney Lorcana Trading Card Game at Gen Con 2026",
+      "date": "July 21, 2026",
+      "category": "News",
+      "summary": "Disney Lorcana TCG returns to Gen Con Indy 2026 from Thursday, July 30 to Sunday, August 2.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/rav_gencon_generic_1920x1080.jpg"
+    },
+    {
+      "title": "Collection Quest Events Coming to Stores in the United States and Canada This August!",
+      "date": "July 15, 2026",
+      "category": "News",
+      "summary": "Ravensburger is bringing Disney Lorcana Trading Card Game Collection Quest events to a store near you!",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/04/w-ntevaanrwj_1920x1080-1.jpg"
+    },
+    {
+      "title": "Let’s Scare and Care Together!",
+      "date": "July 31, 2026",
+      "category": "Gameplay",
+      "summary": "Mike Wazowski, Sulley, and more monsters have joined the Disney Lorcana Trading Card Game in Attack of the Vine!",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/atv-monsters-inc-deck/w-72j7extbf5_1920x1080.jpg"
+    },
+    {
+      "title": "What’s New in Attack of the Vine!",
+      "date": "July 30, 2026",
+      "category": "News",
+      "summary": "Attack of the Vine! is here and ready to invade your decks and your collections!",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/w-7koojgwseg_1920x1080.jpg"
+    },
+    {
+      "title": "D23: The Ultimate Disney Fan Event Showcases Disney Lorcana Trading Card Game",
+      "date": "July 14, 2026",
+      "category": "Events",
+      "summary": "D23: The Ultimate Disney Fan Event (TUDFE) is a three-day celebration of all things Disney, and Ravensburger",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/xrszzevabf_1920x1080_v2.jpg"
+    },
+    {
+      "title": "Another Prerelease is Nearly Here",
+      "date": "July 14, 2026",
+      "category": "News",
+      "summary": "Prerelease events allow you to experience the newest set before it is released at mass retailers.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/w-4jj7ljjhxb_1920x1080.jpg"
+    },
+    {
+      "title": "Disney Lorcana TCG Set Release Notes: Attack of the Vine!",
+      "date": "July 9, 2026",
+      "category": "Strategy",
+      "summary": "Welcome to the Disney Lorcana TCG set release notes for Attack of the Vine!",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/w-d9dbqegmw4_1920x1080.jpg"
+    },
+    {
+      "title": "Attack of the Vine! Creative Spotlight",
+      "date": "July 2, 2026",
+      "category": "News",
+      "summary": "Iconic and Enchanted cards are two of the rarest types of cards in Disney Lorcana TCG.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/w-faljmerdtf_1920x1080.jpg"
+    },
+    {
+      "title": "An Ever-Shifting Game",
+      "date": "June 30, 2026",
+      "category": "Gameplay",
+      "summary": "Discover new Shift variants in Attack of the Vine! that are sure to change up your next quest.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/variant-shift/w-gd89m6ydyi_1920x1080.jpg"
+    },
+    {
+      "title": "Disney Lorcana Challenge Indianapolis Recap",
+      "date": "June 25, 2026",
+      "category": "Organized Play",
+      "summary": "Bryan Pereira takes home the gold trophy at the Disney Lorcana Challenge in Indianapolis",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/indianapolis/header.jpg"
+    },
+    {
+      "title": "Flood Ink Evolved",
+      "date": "June 23, 2026",
+      "category": "Gameplay",
+      "summary": "Discover how the vine has used this resource to grow and grow and grow.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/flood-ink-evolved/w-kcluypgm1b_1920x1080.jpg"
+    },
+    {
+      "title": "Attack of the Vine! Press Release",
+      "date": "June 23, 2026",
+      "category": "News",
+      "summary": "Collect Disney Lorcana TCG cards featuring glimmers from Pixar Animation Studios’ Monsters, Inc., Up, and Turning Red.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/attack-of-the-vine-press-release/d6quksm9_1920x1080.jpg"
+    },
+    {
+      "title": "Curator’s Collection: Heroines Edition Announced",
+      "date": "June 18, 2026",
+      "category": "News",
+      "summary": "Celebrate six heroines from classic Disney stories in a new, special collection from the Disney Lorcana Trading Card Game.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/curators-collection-heroines/cc_heroines_article_1920x1080.jpg"
+    },
+    {
+      "title": "NEW COMBOS AT PLAY",
+      "date": "June 18, 2026",
+      "category": "Strategy",
+      "summary": "Discover how to vary up your Disney Lorcana game with these powerful Wilds Unknown combos.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/fkasdorgsdfusd.png"
+    },
+    {
+      "title": "Community Spotlight: Game Kastle, Austin TX",
+      "date": "June 16, 2026",
+      "category": "News",
+      "summary": "A look inside Game Kastle's thriving Disney Lorcana TCG community and what makes it so successful",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/w-gdmlcu1wk7_1920x1080.jpg"
+    }
+  ]
+}

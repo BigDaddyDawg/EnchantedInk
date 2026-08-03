@@ -1,5 +1,7 @@
 (() => {
   const PAGE_SIZE = 48;
+  const NEWS_URL = "https://www.disneylorcana.com/en-US/news/";
+  const LIVE_NEWS_URL = `https://r.jina.ai/http://www.disneylorcana.com/en-US/news/`;
   const FAV_PICKS = {
     "Toy Story": ["Woody", "Buzz Lightyear", "Jessie"],
     "Winnie the Pooh": ["Winnie the Pooh", "Tigger", "Piglet"],
@@ -27,13 +29,29 @@
     modalSet: document.getElementById("modalSet"),
     modalType: document.getElementById("modalType"),
     modalColor: document.getElementById("modalColor"),
+    panelCollection: document.getElementById("panelCollection"),
+    panelComing: document.getElementById("panelComing"),
+    tabCollection: document.getElementById("tabCollection"),
+    tabComing: document.getElementById("tabComing"),
+    comingStatus: document.getElementById("comingStatus"),
+    comingRefresh: document.getElementById("comingRefresh"),
+    upcomingSets: document.getElementById("upcomingSets"),
+    newsList: document.getElementById("newsList"),
+    revealsGrid: document.getElementById("revealsGrid"),
+    revealsNote: document.getElementById("revealsNote"),
   };
 
-  /** @type {{cards: any[], sets: any[], rarities: string[], stories: string[]}} */
+  /** @type {{cards: any[], sets: any[], rarities: string[], stories: string[], count?: number}} */
   let catalog = { cards: [], sets: [], rarities: [], stories: [] };
   let filtered = [];
   let shown = 0;
   let searchTimer = null;
+  let comingLoaded = false;
+  let comingBusy = false;
+  /** @type {any} */
+  let comingData = null;
+  /** @type {any[]} */
+  let comingDisplayCards = [];
 
   initStars();
   boot();
@@ -47,6 +65,7 @@
       paintFavorites();
       bindUI();
       applyFilters();
+      maybeOpenComingFromHash();
     } catch (err) {
       els.countLabel.textContent = "The ink wouldn’t settle. Try refreshing.";
       console.error(err);
@@ -84,13 +103,11 @@
       const art = document.getElementById(id);
       if (!art) continue;
       const names = FAV_PICKS[story] || [];
-      let card =
+      const card =
         catalog.cards.find(
           (c) => c.story === story && names.includes(c.name) && c.type === "Character"
         ) || catalog.cards.find((c) => c.story === story && c.type === "Character");
-      if (card) {
-        art.style.backgroundImage = `url("${card.full || card.thumb}")`;
-      }
+      if (card) art.style.backgroundImage = `url("${card.full || card.thumb}")`;
     }
   }
 
@@ -112,22 +129,19 @@
 
     document.querySelectorAll(".fav-card").forEach((btn) => {
       btn.addEventListener("click", () => {
+        showTab("collection");
         const story = btn.getAttribute("data-story") || "";
         els.search.value = "";
         els.setFilter.value = "";
         els.rarityFilter.value = "";
         els.storyFilter.value = story;
         applyFilters();
-        document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById("collection")?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
 
-    els.grid.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-id]");
-      if (!btn) return;
-      const card = catalog.cards.find((c) => String(c.id) === btn.dataset.id);
-      if (card) openModal(card);
-    });
+    els.grid.addEventListener("click", onCardClick);
+    els.revealsGrid?.addEventListener("click", onCardClick);
 
     els.modalClose.addEventListener("click", () => els.modal.close());
     els.modal.addEventListener("click", (e) => {
@@ -144,6 +158,289 @@
       { rootMargin: "600px 0px" }
     );
     io.observe(els.sentinel);
+
+    els.tabCollection?.addEventListener("click", () => showTab("collection"));
+    els.tabComing?.addEventListener("click", () => showTab("coming"));
+    els.comingRefresh?.addEventListener("click", () => loadComingSoon(true));
+    window.addEventListener("hashchange", maybeOpenComingFromHash);
+  }
+
+  function onCardClick(e) {
+    const btn = e.target.closest("[data-id]");
+    if (!btn) return;
+    const id = btn.dataset.id;
+    const card =
+      catalog.cards.find((c) => String(c.id) === id) ||
+      comingDisplayCards.find((c) => String(c.id) === id) ||
+      (comingData?.reveals || []).find((c) => String(c.id) === id);
+    if (card) openModal(card);
+  }
+
+  function maybeOpenComingFromHash() {
+    if ((location.hash || "").toLowerCase().includes("coming")) showTab("coming");
+  }
+
+  function showTab(name) {
+    const coming = name === "coming";
+    els.panelCollection.hidden = coming;
+    els.panelComing.hidden = !coming;
+    els.tabCollection.classList.toggle("is-active", !coming);
+    els.tabComing.classList.toggle("is-active", coming);
+    if (coming) {
+      history.replaceState(null, "", "#coming-soon");
+      if (!comingLoaded) loadComingSoon(false);
+    } else {
+      history.replaceState(null, "", "#collection");
+    }
+  }
+
+  async function loadComingSoon(forceLive) {
+    if (comingBusy) return;
+    comingBusy = true;
+    els.comingRefresh.disabled = true;
+    els.comingStatus.textContent = forceLive
+      ? "Refreshing the latest whispers…"
+      : "Gathering upcoming sets and news…";
+
+    try {
+      const stamp = Date.now();
+      const bakedRes = await fetch(`./data/coming-soon.json?t=${stamp}`, { cache: "no-store" });
+      if (!bakedRes.ok) throw new Error(`coming-soon.json ${bakedRes.status}`);
+      comingData = await bakedRes.json();
+
+      // Live news pass — official site via CORS-friendly reader when she opens the tab
+      let liveNews = null;
+      try {
+        liveNews = await fetchLiveNews();
+      } catch (err) {
+        console.warn("Live news unavailable, using baked copy.", err);
+      }
+      if (liveNews?.length) comingData.news = liveNews;
+
+      renderComingSoon();
+      comingLoaded = true;
+
+      const when = comingData.generated
+        ? new Date(comingData.generated).toLocaleString(undefined, {
+            dateStyle: "medium",
+            timeStyle: "short",
+          })
+        : "just now";
+      const liveBit = liveNews?.length ? " · news refreshed live" : "";
+      els.comingStatus.textContent = `Catalog snapshot ${when}${liveBit}`;
+    } catch (err) {
+      console.error(err);
+      els.comingStatus.textContent =
+        "Couldn’t reach the ink wells right now. Try Refresh in a moment.";
+    } finally {
+      comingBusy = false;
+      els.comingRefresh.disabled = false;
+    }
+  }
+
+  async function fetchLiveNews() {
+    const res = await fetch(`${LIVE_NEWS_URL}?t=${Date.now()}`, {
+      cache: "no-store",
+      headers: {
+        Accept: "text/html",
+        "X-Return-Format": "html",
+      },
+    });
+    if (!res.ok) throw new Error(`live news ${res.status}`);
+    const html = await res.text();
+    const fromHtml = parseNewsHtml(html);
+    if (fromHtml.length) return fromHtml;
+    return parseLiveNewsMarkdown(html);
+  }
+
+  function parseNewsHtml(raw) {
+    const items = [];
+    const seen = new Set();
+    const re =
+      /<p class="date">(?<date>[^<]+)<\/p>\s*(?:<p class="category">(?<category>[^<]*)<\/p>\s*)?<h1 class="heading">(?<title>[^<]+)<\/h1>\s*(?:<p class="description">(?<summary>.*?)<\/p>)?/gis;
+    let m;
+    while ((m = re.exec(raw))) {
+      const title = decodeEntities(m.groups.title || "").replace(/\s+/g, " ").trim();
+      if (!title || seen.has(title.toLowerCase())) continue;
+      if (/^(news|latest news|featured news|all news)$/i.test(title)) continue;
+      seen.add(title.toLowerCase());
+      const window = raw.slice(Math.max(0, m.index - 500), m.index + m[0].length + 500);
+      const href = window.match(/href="(\/en-US\/news\/[^"]+)"/i);
+      const img = window.match(/<img[^>]+src="([^"]+)"/i);
+      items.push({
+        title,
+        date: decodeEntities(m.groups.date || "").trim(),
+        category: decodeEntities(m.groups.category || "News").trim(),
+        summary: decodeEntities(m.groups.summary || "")
+          .replace(/<[^>]+>/g, " ")
+          .replace(/\s+/g, " ")
+          .trim()
+          .slice(0, 320),
+        url: href ? `https://www.disneylorcana.com${href[1]}` : NEWS_URL,
+        image: img ? img[1] : null,
+      });
+      if (items.length >= 16) break;
+    }
+    return items;
+  }
+
+  function decodeEntities(str) {
+    const el = document.createElement("textarea");
+    el.innerHTML = str || "";
+    return el.value;
+  }
+
+  function parseLiveNewsMarkdown(md) {
+    // Prefer baked HTML-quality items if markdown is too noisy; still salvage titles.
+    const items = [];
+    const seen = new Set();
+    const lines = md.split(/\r?\n/);
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      const titleMatch = line.match(/^#+\s+(.+)$/);
+      if (!titleMatch) continue;
+      let title = titleMatch[1].replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").trim();
+      title = title.replace(/!\[.*?\]\(.*?\)/g, "").trim();
+      if (title.length < 8 || title.length > 120) continue;
+      const skip = /^(US|News|Latest News|Featured News|All News|Products|Card Gallery|Challenge|Store Locator)$/i;
+      if (skip.test(title)) continue;
+      if (/Attack of the Vine!|Collection Starter|Companion App|Hyperia City|Winterspell|Fabled|Into the Inkdark/i.test(title) && title.length < 24) {
+        // Product nav noise
+        if (!/What’s New|Press Release|Creative Spotlight|Release Notes/i.test(title)) continue;
+      }
+      const key = title.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      let date = "";
+      let summary = "";
+      for (let j = i + 1; j < Math.min(i + 6, lines.length); j++) {
+        const nxt = lines[j].trim();
+        if (!date) {
+          const dm = nxt.match(
+            /((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4})/
+          );
+          if (dm) date = dm[1];
+        }
+        if (nxt && !nxt.startsWith("#") && !nxt.startsWith("*") && nxt.length > 40 && !summary) {
+          summary = nxt.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1").slice(0, 280);
+        }
+      }
+      items.push({
+        title,
+        date,
+        category: "News",
+        summary,
+        url: NEWS_URL,
+      });
+      if (items.length >= 12) break;
+    }
+    return items;
+  }
+
+  function renderComingSoon() {
+    const sets = comingData?.upcomingSets || [];
+    els.upcomingSets.innerHTML = sets
+      .map((set) => {
+        const art = set.heroImage
+          ? `style="background-image:url('${escapeAttr(set.heroImage)}')"`
+          : "";
+        const dates = [
+          set.prereleaseLabel ? `Prerelease ${set.prereleaseLabel}` : null,
+          set.releaseLabel
+            ? `Everywhere ${set.releaseLabel}`
+            : set.releaseDate
+              ? `Release ${set.releaseDate}`
+              : null,
+        ]
+          .filter(Boolean)
+          .join(" · ");
+        const href = set.productUrl || NEWS_URL;
+        const count =
+          set.revealedCount > 0
+            ? `${set.revealedCount} card${set.revealedCount === 1 ? "" : "s"} revealed so far`
+            : "Cards not revealed yet — check back as spoilers drop";
+        return `
+          <a class="set-card" href="${escapeAttr(href)}" target="_blank" rel="noopener">
+            <span class="set-card-art" ${art}></span>
+            <span class="set-card-body">
+              <span class="set-kicker">${escapeHtml(set.type || "Upcoming set")}</span>
+              <h4>${escapeHtml(set.name || "Untitled set")}</h4>
+              <p class="set-dates">${escapeHtml(dates || "Date TBA")}</p>
+              <p class="set-blurb">${escapeHtml(set.blurb || "More ink is on the way.")}</p>
+              <p class="set-meta">${escapeHtml(count)}</p>
+            </span>
+          </a>
+        `;
+      })
+      .join("");
+
+    const news = comingData?.news || [];
+    if (!news.length) {
+      els.newsList.innerHTML = `<p class="coming-note">No headlines yet — tap Refresh, or visit the <a href="${NEWS_URL}" target="_blank" rel="noopener">official news page</a>.</p>`;
+    } else {
+      els.newsList.innerHTML = news
+        .map((n) => {
+          const thumb = n.image
+            ? `<img class="news-thumb" src="${escapeAttr(n.image)}" alt="" loading="lazy" />`
+            : `<div class="news-thumb placeholder" aria-hidden="true">✦</div>`;
+          const meta = [n.date, n.category].filter(Boolean).join(" · ");
+          return `
+            <a class="news-item" href="${escapeAttr(n.url || NEWS_URL)}" target="_blank" rel="noopener">
+              ${thumb}
+              <span>
+                <p class="news-date">${escapeHtml(meta || "Latest")}</p>
+                <h4>${escapeHtml(n.title)}</h4>
+                ${n.summary ? `<p class="news-summary">${escapeHtml(n.summary)}</p>` : ""}
+              </span>
+            </a>
+          `;
+        })
+        .join("");
+    }
+
+    const reveals = comingData?.reveals || [];
+    const previewArts = [];
+    for (const set of sets) {
+      for (const url of set.gallery || []) {
+        if (!/\/cards?\//i.test(url)) continue;
+        previewArts.push({
+          id: `preview-${set.code}-${previewArts.length}`,
+          fullName: `${set.name} preview`,
+          name: set.name,
+          version: "Official preview",
+          rarity: "Preview",
+          setName: set.name,
+          setCode: set.code,
+          story: "Coming Soon",
+          type: "Preview",
+          color: "",
+          thumb: url,
+          full: url,
+        });
+      }
+    }
+    const showCards = reveals.length ? reveals : previewArts;
+    comingDisplayCards = showCards;
+    els.revealsNote.textContent = reveals.length
+      ? `${reveals.length} early reveal${reveals.length === 1 ? "" : "s"} from upcoming sets`
+      : previewArts.length
+        ? `${previewArts.length} official preview image${previewArts.length === 1 ? "" : "s"} — full spoilers will appear here as they’re revealed`
+        : "No early card art yet — as soon as Hyperia City (and friends) are teased, they’ll sparkle here.";
+    els.revealsGrid.innerHTML = "";
+    showCards.forEach((card, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "card";
+      btn.dataset.id = String(card.id);
+      btn.style.animationDelay = `${Math.min(i, 12) * 28}ms`;
+      btn.setAttribute("aria-label", `${card.fullName}, ${card.rarity}`);
+      btn.innerHTML = `
+        <img src="${escapeAttr(card.thumb || card.full)}" alt="" loading="lazy" decoding="async" width="367" height="512" />
+        <span class="card-badge">${escapeHtml(card.rarity || "Reveal")}</span>
+      `;
+      els.revealsGrid.appendChild(btn);
+    });
   }
 
   function applyFilters() {
@@ -188,9 +485,7 @@
     }
 
     els.activePills.hidden = parts.length === 0;
-    els.activePills.innerHTML = parts
-      .map((p) => `<span class="pill">${escapeHtml(p)}</span>`)
-      .join("");
+    els.activePills.innerHTML = parts.map((p) => `<span class="pill">${escapeHtml(p)}</span>`).join("");
     els.empty.hidden = n !== 0;
   }
 
@@ -206,7 +501,7 @@
       btn.style.animationDelay = `${Math.min(i, 12) * 28}ms`;
       btn.setAttribute("aria-label", `${card.fullName}, ${card.rarity}`);
       btn.innerHTML = `
-        <img src="${card.thumb}" alt="" loading="lazy" decoding="async" width="367" height="512" />
+        <img src="${escapeAttr(card.thumb)}" alt="" loading="lazy" decoding="async" width="367" height="512" />
         <span class="card-badge">${escapeHtml(card.rarity || "")}</span>
       `;
       frag.appendChild(btn);
@@ -234,6 +529,10 @@
       .replaceAll("<", "&lt;")
       .replaceAll(">", "&gt;")
       .replaceAll('"', "&quot;");
+  }
+
+  function escapeAttr(str) {
+    return escapeHtml(str).replaceAll("'", "&#39;");
   }
 
   function initStars() {
