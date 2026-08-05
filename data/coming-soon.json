@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-03T15:16:05Z",
+  "generated": "2026-08-05T16:29:13Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -86,6 +86,22 @@
   "reveals": [],
   "news": [
     {
+      "title": "EVERYTHING YOU NEED TO KNOW ABOUT ROTATION AS A NEW PLAYER",
+      "date": "August 4, 2026",
+      "category": "News",
+      "summary": "Let’s talk about what rotation means for the Disney Lorcana Trading Card Game",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/w-9yrjczjepc_1920x1080.jpg"
+    },
+    {
+      "title": "Attack of the Vine! Survey",
+      "date": "August 3, 2026",
+      "category": "News",
+      "summary": "Take this survey",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/attack-of-the-vine-press-release/d6quksm9_1920x1080.jpg"
+    },
+    {
       "title": "New Collection Quests in Paris and Hong Kong",
       "date": "July 29, 2026",
       "category": "News",
@@ -110,22 +126,6 @@
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/atv-turning-red-deck/s13-atv_sustain_turning-red-deck_assetsvje5welvdv_1920x1080.jpg"
     },
     {
-      "title": "Disney Lorcana Trading Card Game at Gen Con 2026",
-      "date": "July 21, 2026",
-      "category": "News",
-      "summary": "Disney Lorcana TCG returns to Gen Con Indy 2026 from Thursday, July 30 to Sunday, August 2.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/rav_gencon_generic_1920x1080.jpg"
-    },
-    {
-      "title": "Collection Quest Events Coming to Stores in the United States and Canada This August!",
-      "date": "July 15, 2026",
-      "category": "News",
-      "summary": "Ravensburger is bringing Disney Lorcana Trading Card Game Collection Quest events to a store near you!",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/04/w-ntevaanrwj_1920x1080-1.jpg"
-    },
-    {
       "title": "Let’s Scare and Care Together!",
       "date": "July 31, 2026",
       "category": "Gameplay",
@@ -140,6 +140,22 @@
       "summary": "Attack of the Vine! is here and ready to invade your decks and your collections!",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/w-7koojgwseg_1920x1080.jpg"
+    },
+    {
+      "title": "Disney Lorcana Trading Card Game at Gen Con 2026",
+      "date": "July 21, 2026",
+      "category": "Events",
+      "summary": "Disney Lorcana TCG returns to Gen Con Indy 2026 from Thursday, July 30 to Sunday, August 2.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/rav_gencon_generic_1920x1080.jpg"
+    },
+    {
+      "title": "Collection Quest Events Coming to Stores in the United States and Canada This August!",
+      "date": "July 15, 2026",
+      "category": "News",
+      "summary": "Ravensburger is bringing Disney Lorcana Trading Card Game Collection Quest events to a store near you!",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/04/w-ntevaanrwj_1920x1080-1.jpg"
     },
     {
       "title": "D23: The Ultimate Disney Fan Event Showcases Disney Lorcana Trading Card Game",
@@ -212,22 +228,6 @@
       "summary": "Celebrate six heroines from classic Disney stories in a new, special collection from the Disney Lorcana Trading Card Game.",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/curators-collection-heroines/cc_heroines_article_1920x1080.jpg"
-    },
-    {
-      "title": "NEW COMBOS AT PLAY",
-      "date": "June 18, 2026",
-      "category": "Strategy",
-      "summary": "Discover how to vary up your Disney Lorcana game with these powerful Wilds Unknown combos.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/fkasdorgsdfusd.png"
-    },
-    {
-      "title": "Community Spotlight: Game Kastle, Austin TX",
-      "date": "June 16, 2026",
-      "category": "News",
-      "summary": "A look inside Game Kastle's thriving Disney Lorcana TCG community and what makes it so successful",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/w-gdmlcu1wk7_1920x1080.jpg"
     }
   ]
 }
