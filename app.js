@@ -4,15 +4,17 @@
   const LORCAST_CARD_URL = "https://api.lorcast.com/v0/cards";
   const PRICE_CACHE_TTL_MS = 60 * 60 * 1000;
   const HEART_SVG = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2s-6.7-4.2-9.1-8.1C1.2 9.4 2.1 6.4 5 5.4c1.8-.6 3.7.1 4.8 1.5C11 5.5 12.9 4.8 14.7 5.4c2.9 1 3.8 4 2.1 6.7-2.4 3.9-9.1 8.1-9.1 8.1z"/></svg>`;
+  const CHECK_SVG = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
   const UNIVERSES = {
     lorcana: {
       id: "lorcana",
       brand: "Enchanted Ink",
       tagline: "Every Disney Lorcana card, waiting to be found.",
-      catalogUrl: "./data/cards.json?v=4",
-      comingUrl: "./data/coming-soon.json?v=4",
+      catalogUrl: "./data/cards.json?v=5",
+      comingUrl: "./data/coming-soon.json?v=5",
       wishlistKey: "enchantedink_wishlist_v1",
+      ownedKey: "enchantedink_owned_v1",
       appSlug: "enchantedink",
       newsUrl: "https://www.disneylorcana.com/en-US/news/",
       liveNewsUrl: "https://r.jina.ai/http://www.disneylorcana.com/en-US/news/",
@@ -78,9 +80,10 @@
       id: "kiratto",
       brand: "Enchanted Ink",
       tagline: "Tenyo’s shimmering Disney Art Gallery — every Kiratto card.",
-      catalogUrl: "./data/kiratto-cards.json?v=1",
-      comingUrl: "./data/kiratto-coming-soon.json?v=1",
+      catalogUrl: "./data/kiratto-cards.json?v=2",
+      comingUrl: "./data/kiratto-coming-soon.json?v=2",
       wishlistKey: "kirattogallery_wishlist_v1",
+      ownedKey: "kirattogallery_owned_v1",
       appSlug: "kirattogallery",
       newsUrl: "https://tenyo.jp/agcard",
       liveNewsUrl: null,
@@ -132,6 +135,7 @@
   let universeId = readSavedUniverse();
   let universe = UNIVERSES[universeId];
   let WISHLIST_KEY = universe.wishlistKey;
+  let OWNED_KEY = universe.ownedKey;
   let NEWS_URL = universe.newsUrl;
   let LIVE_NEWS_URL = universe.liveNewsUrl;
   let switchingUniverse = false;
@@ -162,16 +166,30 @@
     modalPrice: document.getElementById("modalPrice"),
     modalPriceNote: document.getElementById("modalPriceNote"),
     modalWish: document.getElementById("modalWish"),
+    modalOwn: document.getElementById("modalOwn"),
     modalRarityLabel: document.getElementById("modalRarityLabel"),
     modalSetLabel: document.getElementById("modalSetLabel"),
     modalTypeLabel: document.getElementById("modalTypeLabel"),
     modalColorLabel: document.getElementById("modalColorLabel"),
     panelCollection: document.getElementById("panelCollection"),
+    panelOwned: document.getElementById("panelOwned"),
+    panelForYou: document.getElementById("panelForYou"),
     panelWishlist: document.getElementById("panelWishlist"),
     panelComing: document.getElementById("panelComing"),
     tabCollection: document.getElementById("tabCollection"),
+    tabOwned: document.getElementById("tabOwned"),
+    tabForYou: document.getElementById("tabForYou"),
     tabWishlist: document.getElementById("tabWishlist"),
     tabComing: document.getElementById("tabComing"),
+    ownedGrid: document.getElementById("ownedGrid"),
+    ownedEmpty: document.getElementById("ownedEmpty"),
+    ownedSearch: document.getElementById("ownedSearch"),
+    ownedCountLabel: document.getElementById("ownedCountLabel"),
+    ownedTabCount: document.getElementById("ownedTabCount"),
+    forYouStatus: document.getElementById("forYouStatus"),
+    forYouTaste: document.getElementById("forYouTaste"),
+    forYouShelves: document.getElementById("forYouShelves"),
+    forYouEmpty: document.getElementById("forYouEmpty"),
     wishGrid: document.getElementById("wishGrid"),
     wishEmpty: document.getElementById("wishEmpty"),
     wishSearch: document.getElementById("wishSearch"),
@@ -210,6 +228,7 @@
   let shown = 0;
   let searchTimer = null;
   let wishSearchTimer = null;
+  let ownedSearchTimer = null;
   let comingLoaded = false;
   let comingBusy = false;
   /** @type {any} */
@@ -218,6 +237,8 @@
   let comingDisplayCards = [];
   /** @type {Set<string>} */
   let wishlist = new Set();
+  /** @type {Set<string>} */
+  let owned = new Set();
   /** @type {string | null} */
   let modalCardId = null;
   /** @type {any | null} */
@@ -228,10 +249,13 @@
   let activeTab = "collection";
   /** @type {ReturnType<typeof window.FamilyListSync.create> | null} */
   let wishSync = null;
+  /** @type {ReturnType<typeof window.FamilyListSync.create> | null} */
+  let ownedSync = null;
 
   initStars();
   applyUniverseChrome();
   loadWishlist();
+  loadOwned();
   registerServiceWorker();
   boot();
 
@@ -239,7 +263,7 @@
     if (!("serviceWorker" in navigator)) return;
     window.addEventListener("load", () => {
       navigator.serviceWorker
-        .register("service-worker.js?v=3")
+        .register("service-worker.js?v=5")
         .then((reg) => {
           if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
           reg.update().catch(() => {});
@@ -275,6 +299,7 @@
       }
       applyFilters();
       updateWishChrome();
+      updateOwnedChrome();
       maybeOpenTabFromHash();
     } catch (err) {
       els.countLabel.textContent = "The ink wouldn’t settle. Try refreshing.";
@@ -343,6 +368,7 @@
       universeId = nextId;
       universe = UNIVERSES[universeId];
       WISHLIST_KEY = universe.wishlistKey;
+      OWNED_KEY = universe.ownedKey;
       NEWS_URL = universe.newsUrl;
       LIVE_NEWS_URL = universe.liveNewsUrl;
       try {
@@ -351,6 +377,8 @@
 
       if (wishSync?.unsubscribe) wishSync.unsubscribe();
       wishSync = null;
+      if (ownedSync?.unsubscribe) ownedSync.unsubscribe();
+      ownedSync = null;
 
       comingLoaded = false;
       comingBusy = false;
@@ -366,6 +394,7 @@
       if (els.rarityFilter) els.rarityFilter.value = "";
       if (els.storyFilter) els.storyFilter.value = "";
       loadWishlist();
+      loadOwned();
       await boot();
       showTab("collection");
     } finally {
@@ -383,14 +412,29 @@
         wishlist = new Set(ids.map(String));
         updateWishChrome();
         if (activeTab === "wishlist") renderWishlist();
+        if (activeTab === "foryou") renderForYou();
         if (modalCardId) {
           syncModalWishBtn();
           refreshModalPrice();
         }
       },
     });
+    ownedSync = window.FamilyListSync.create({
+      app: universe.appSlug,
+      listType: "owned",
+      storageKey: OWNED_KEY,
+      onRemoteChange: (ids) => {
+        owned = new Set(ids.map(String));
+        updateOwnedChrome();
+        if (activeTab === "owned") renderOwned();
+        if (activeTab === "foryou") renderForYou();
+        if (modalCardId) syncModalOwnBtn();
+      },
+    });
     wishlist = await wishSync.hydrate(wishlist);
+    owned = await ownedSync.hydrate(owned);
     wishSync.subscribe();
+    ownedSync.subscribe();
   }
 
   function loadWishlist() {
@@ -410,8 +454,29 @@
     }
   }
 
+  function loadOwned() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(OWNED_KEY) || "[]");
+      owned = new Set((Array.isArray(raw) ? raw : []).map(String));
+    } catch {
+      owned = new Set();
+    }
+  }
+
+  function saveOwned() {
+    try {
+      localStorage.setItem(OWNED_KEY, JSON.stringify([...owned]));
+    } catch (err) {
+      console.warn("Could not save owned list", err);
+    }
+  }
+
   function isWished(id) {
     return wishlist.has(String(id));
+  }
+
+  function isOwned(id) {
+    return owned.has(String(id));
   }
 
   function toggleWish(id) {
@@ -423,11 +488,40 @@
     syncWishButtons(key);
     updateWishChrome();
     if (activeTab === "wishlist") renderWishlist();
+    if (activeTab === "foryou") renderForYou();
     if (modalCardId === key) {
       syncModalWishBtn();
       refreshModalPrice();
     }
     return wishlist.has(key);
+  }
+
+  function toggleOwn(id) {
+    const key = String(id);
+    if (owned.has(key)) owned.delete(key);
+    else {
+      owned.add(key);
+      if (wishlist.has(key)) {
+        wishlist.delete(key);
+        saveWishlist();
+        if (wishSync) wishSync.setItem(key, false);
+        syncWishButtons(key);
+        updateWishChrome();
+      }
+    }
+    saveOwned();
+    if (ownedSync) ownedSync.setItem(key, owned.has(key));
+    syncOwnButtons(key);
+    updateOwnedChrome();
+    if (activeTab === "owned") renderOwned();
+    if (activeTab === "wishlist") renderWishlist();
+    if (activeTab === "foryou") renderForYou();
+    if (modalCardId === key) {
+      syncModalOwnBtn();
+      syncModalWishBtn();
+      refreshModalPrice();
+    }
+    return owned.has(key);
   }
 
   function formatUsd(value) {
@@ -616,6 +710,8 @@
     });
 
     els.grid.addEventListener("click", onGridClick);
+    els.ownedGrid?.addEventListener("click", onGridClick);
+    els.forYouShelves?.addEventListener("click", onGridClick);
     els.wishGrid?.addEventListener("click", onGridClick);
     els.revealsGrid?.addEventListener("click", onGridClick);
 
@@ -625,6 +721,9 @@
     });
     els.modalWish?.addEventListener("click", () => {
       if (modalCardId) toggleWish(modalCardId);
+    });
+    els.modalOwn?.addEventListener("click", () => {
+      if (modalCardId) toggleOwn(modalCardId);
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && els.modal.open) els.modal.close();
@@ -639,11 +738,17 @@
     io.observe(els.sentinel);
 
     els.tabCollection?.addEventListener("click", () => showTab("collection"));
+    els.tabOwned?.addEventListener("click", () => showTab("owned"));
+    els.tabForYou?.addEventListener("click", () => showTab("foryou"));
     els.tabWishlist?.addEventListener("click", () => showTab("wishlist"));
     els.tabComing?.addEventListener("click", () => showTab("coming"));
     els.wishSearch?.addEventListener("input", () => {
       clearTimeout(wishSearchTimer);
       wishSearchTimer = setTimeout(renderWishlist, 160);
+    });
+    els.ownedSearch?.addEventListener("input", () => {
+      clearTimeout(ownedSearchTimer);
+      ownedSearchTimer = setTimeout(renderOwned, 160);
     });
     els.comingRefresh?.addEventListener("click", () => loadComingSoon(true));
     els.universeLorcana?.addEventListener("click", () => switchUniverse("lorcana"));
@@ -652,6 +757,14 @@
   }
 
   function onGridClick(e) {
+    const ownBtn = e.target.closest(".own-btn");
+    if (ownBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const id = ownBtn.dataset.ownId;
+      if (id) toggleOwn(id);
+      return;
+    }
     const wishBtn = e.target.closest(".wish-btn");
     if (wishBtn) {
       e.preventDefault();
@@ -661,7 +774,7 @@
       return;
     }
     const btn = e.target.closest("[data-id]");
-    if (!btn || btn.classList.contains("wish-btn")) return;
+    if (!btn || btn.classList.contains("wish-btn") || btn.classList.contains("own-btn")) return;
     const id = btn.dataset.id;
     const card =
       catalog.cards.find((c) => String(c.id) === id) ||
@@ -673,6 +786,8 @@
   function maybeOpenTabFromHash() {
     const hash = (location.hash || "").toLowerCase();
     if (hash.includes("wishlist")) showTab("wishlist");
+    else if (hash.includes("foryou") || hash.includes("for-you")) showTab("foryou");
+    else if (hash.includes("owned")) showTab("owned");
     else if (hash.includes("coming")) showTab("coming");
     else if (hash.includes("collection")) showTab("collection");
   }
@@ -680,20 +795,32 @@
   function showTab(name) {
     activeTab = name;
     const collection = name === "collection";
+    const ownedTab = name === "owned";
+    const forYouTab = name === "foryou";
     const wishlistTab = name === "wishlist";
     const coming = name === "coming";
 
     els.panelCollection.hidden = !collection;
+    if (els.panelOwned) els.panelOwned.hidden = !ownedTab;
+    if (els.panelForYou) els.panelForYou.hidden = !forYouTab;
     if (els.panelWishlist) els.panelWishlist.hidden = !wishlistTab;
     els.panelComing.hidden = !coming;
 
     els.tabCollection.classList.toggle("is-active", collection);
+    els.tabOwned?.classList.toggle("is-active", ownedTab);
+    els.tabForYou?.classList.toggle("is-active", forYouTab);
     els.tabWishlist?.classList.toggle("is-active", wishlistTab);
     els.tabComing.classList.toggle("is-active", coming);
 
     if (coming) {
       history.replaceState(null, "", "#coming-soon");
       if (!comingLoaded) loadComingSoon(false);
+    } else if (ownedTab) {
+      history.replaceState(null, "", "#owned");
+      renderOwned();
+    } else if (forYouTab) {
+      history.replaceState(null, "", "#foryou");
+      renderForYou();
     } else if (wishlistTab) {
       history.replaceState(null, "", "#wishlist");
       renderWishlist();
@@ -713,12 +840,34 @@
     });
   }
 
+  function syncOwnButtons(id) {
+    const key = String(id);
+    const on = isOwned(key);
+    const safe = typeof CSS !== "undefined" && CSS.escape ? CSS.escape(key) : key.replace(/"/g, '\\"');
+    document.querySelectorAll(`.own-btn[data-own-id="${safe}"]`).forEach((btn) => {
+      btn.classList.toggle("is-on", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.setAttribute("aria-label", on ? "Mark as not owned" : "Mark as owned");
+    });
+    document.querySelectorAll(`.card-wrap[data-card-id="${safe}"]`).forEach((wrap) => {
+      wrap.classList.toggle("is-owned", on);
+    });
+  }
+
   function syncModalWishBtn() {
     if (!els.modalWish || !modalCardId) return;
     const on = isWished(modalCardId);
     els.modalWish.classList.toggle("is-on", on);
     els.modalWish.setAttribute("aria-pressed", on ? "true" : "false");
     els.modalWish.textContent = on ? "Remove from wishlist" : "Add to wishlist";
+  }
+
+  function syncModalOwnBtn() {
+    if (!els.modalOwn || !modalCardId) return;
+    const on = isOwned(modalCardId);
+    els.modalOwn.classList.toggle("is-on", on);
+    els.modalOwn.setAttribute("aria-pressed", on ? "true" : "false");
+    els.modalOwn.textContent = on ? "Remove from owned" : "Mark owned";
   }
 
   function updateWishChrome() {
@@ -735,10 +884,26 @@
     }
   }
 
+  function updateOwnedChrome() {
+    const n = owned.size;
+    if (els.ownedTabCount) {
+      els.ownedTabCount.hidden = n === 0;
+      els.ownedTabCount.textContent = String(n);
+    }
+    if (els.ownedCountLabel) {
+      els.ownedCountLabel.textContent =
+        n === 0
+          ? "Shared family nest — anyone can tick these off."
+          : `${n.toLocaleString()} card${n === 1 ? "" : "s"} nestled in the collection.`;
+    }
+  }
+
   function makeCardTile(card, i = 0) {
     const wrap = document.createElement("div");
     wrap.className = "card-wrap";
     wrap.style.animationDelay = `${Math.min(i, 12) * 28}ms`;
+    wrap.dataset.cardId = String(card.id);
+    wrap.classList.toggle("is-owned", isOwned(card.id));
 
     const btn = document.createElement("button");
     btn.type = "button";
@@ -752,6 +917,15 @@
     wrap.appendChild(btn);
 
     if (isWishable(card.id)) {
+      const own = document.createElement("button");
+      own.type = "button";
+      own.className = `own-btn${isOwned(card.id) ? " is-on" : ""}`;
+      own.dataset.ownId = String(card.id);
+      own.setAttribute("aria-pressed", isOwned(card.id) ? "true" : "false");
+      own.setAttribute("aria-label", isOwned(card.id) ? "Mark as not owned" : "Mark as owned");
+      own.innerHTML = CHECK_SVG;
+      wrap.appendChild(own);
+
       const wish = document.createElement("button");
       wish.type = "button";
       wish.className = `wish-btn${isWished(card.id) ? " is-on" : ""}`;
@@ -804,6 +978,274 @@
       els.wishEmpty.textContent = emptyMsg;
       els.wishEmpty.hidden = cards.length !== 0;
     }
+  }
+
+  function renderOwned() {
+    if (!els.ownedGrid) return;
+    const q = (els.ownedSearch?.value || "").trim().toLowerCase();
+    const cards = [...owned]
+      .map(findCard)
+      .filter(Boolean)
+      .filter((c) => {
+        if (!q) return true;
+        const hay = `${c.fullName} ${c.name} ${c.version} ${c.story} ${c.color || ""} ${c.rarity || ""}`.toLowerCase();
+        return hay.includes(q);
+      });
+
+    els.ownedGrid.innerHTML = "";
+    const frag = document.createDocumentFragment();
+    cards.forEach((card, i) => frag.appendChild(makeCardTile(card, i)));
+    els.ownedGrid.appendChild(frag);
+
+    if (els.ownedEmpty) {
+      els.ownedEmpty.textContent =
+        owned.size === 0
+          ? "Nothing marked as owned yet. Browse the collection and tap a check to begin."
+          : "No owned cards match that search.";
+      els.ownedEmpty.hidden = cards.length !== 0;
+    }
+  }
+
+  function topCounts(map, limit = 3, min = 1) {
+    return [...map.entries()]
+      .filter(([, n]) => n >= min)
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .slice(0, limit);
+  }
+
+  function bumpCount(map, key, by = 1) {
+    if (!key) return;
+    map.set(key, (map.get(key) || 0) + by);
+  }
+
+  function isSpecialInk(card) {
+    const hay = `${card.rarity || ""} ${card.version || ""}`.toLowerCase();
+    return /enchanted|legendary|epic|iconic|special|promo|super rare/.test(hay);
+  }
+
+  function buildTasteProfile(ownedCards) {
+    const names = new Map();
+    const stories = new Map();
+    const inks = new Map();
+    const rarities = new Map();
+    const types = new Map();
+    let specialScore = 0;
+
+    for (const card of ownedCards) {
+      bumpCount(names, card.name);
+      bumpCount(stories, card.story);
+      bumpCount(inks, card.color);
+      bumpCount(rarities, card.rarity);
+      bumpCount(types, card.type);
+      if (isSpecialInk(card)) specialScore += 1;
+    }
+
+    return {
+      ownedCount: ownedCards.length,
+      names: topCounts(names, 4),
+      stories: topCounts(stories, 3),
+      inks: topCounts(inks, 3),
+      rarities: topCounts(rarities, 3),
+      types: topCounts(types, 2),
+      specialScore,
+      lovesSpecials: specialScore >= Math.max(2, Math.ceil(ownedCards.length * 0.35)),
+    };
+  }
+
+  function scoreRecommendation(card, taste) {
+    let score = 0;
+    /** @type {string[]} */
+    const reasons = [];
+
+    for (const [name, n] of taste.names) {
+      if (card.name === name) {
+        score += 14 + n * 3;
+        reasons.push(`More ${name} for the realm`);
+        break;
+      }
+    }
+    for (const [story, n] of taste.stories) {
+      if (card.story === story) {
+        score += 10 + n * 2;
+        reasons.push(`From her beloved ${story}`);
+        break;
+      }
+    }
+    for (const [ink, n] of taste.inks) {
+      if (card.color === ink) {
+        score += 6 + n;
+        reasons.push(`${ink} ink energy`);
+        break;
+      }
+    }
+    for (const [rarity, n] of taste.rarities) {
+      if (card.rarity === rarity && !/common/i.test(rarity)) {
+        score += 5 + n;
+        if (reasons.length < 2) reasons.push(`That ${rarity} sparkle`);
+        break;
+      }
+    }
+    for (const [type, n] of taste.types) {
+      if (card.type === type && type !== "Character") {
+        score += 4 + n;
+        if (reasons.length < 2) reasons.push(`More ${type}s`);
+        break;
+      }
+    }
+    if (taste.lovesSpecials && isSpecialInk(card)) {
+      score += 8;
+      reasons.push("Special ink energy");
+    }
+    if (isWished(card.id)) score += 2;
+
+    return { score, reason: reasons[0] || "Matches her inkbound" };
+  }
+
+  function makeRecoTile(card, reason, index) {
+    const wrap = document.createElement("div");
+    wrap.className = "reco-wrap";
+    wrap.style.animationDelay = `${Math.min(index, 12) * 0.04}s`;
+    wrap.appendChild(makeCardTile(card, index));
+    if (reason) {
+      const note = document.createElement("p");
+      note.className = "reco-reason";
+      note.textContent = reason;
+      wrap.appendChild(note);
+    }
+    return wrap;
+  }
+
+  function appendRecoShelf(parent, title, blurb, items, used) {
+    const fresh = items.filter((item) => !used.has(String(item.card.id)));
+    if (!fresh.length) return;
+    const article = document.createElement("article");
+    article.className = "reco-shelf";
+    article.innerHTML = `
+      <div class="reco-shelf-head">
+        <h3>${escapeHtml(title)}</h3>
+        ${blurb ? `<p>${escapeHtml(blurb)}</p>` : ""}
+      </div>
+    `;
+    const grid = document.createElement("div");
+    grid.className = "grid reco-grid";
+    fresh.forEach((item, i) => {
+      used.add(String(item.card.id));
+      grid.appendChild(makeRecoTile(item.card, item.reason, i));
+    });
+    article.appendChild(grid);
+    parent.appendChild(article);
+  }
+
+  function renderForYou() {
+    if (!els.forYouShelves) return;
+    const ownedCards = [...owned].map(findCard).filter(Boolean);
+    els.forYouShelves.innerHTML = "";
+    if (els.forYouTaste) {
+      els.forYouTaste.hidden = true;
+      els.forYouTaste.innerHTML = "";
+    }
+
+    if (!ownedCards.length) {
+      if (els.forYouStatus) {
+        els.forYouStatus.textContent = "Soft picks shaped by what’s already in her inkbound.";
+      }
+      if (els.forYouEmpty) {
+        els.forYouEmpty.hidden = false;
+        els.forYouEmpty.textContent =
+          "Mark a few cards as owned, and we’ll nestle lookalike suggestions here — favourite characters, stories, inks, the lot.";
+      }
+      return;
+    }
+
+    const taste = buildTasteProfile(ownedCards);
+    const pills = [
+      ...taste.names.slice(0, 2).map(([k, n]) => `${k} ×${n}`),
+      ...taste.stories.slice(0, 2).map(([k]) => k),
+      ...taste.inks.slice(0, 1).map(([k]) => k),
+    ];
+    if (taste.lovesSpecials) pills.unshift("Special finishes");
+    if (els.forYouTaste && pills.length) {
+      els.forYouTaste.hidden = false;
+      els.forYouTaste.innerHTML = pills
+        .filter(Boolean)
+        .slice(0, 6)
+        .map((p) => `<span class="taste-pill">${escapeHtml(p)}</span>`)
+        .join("");
+    }
+    if (els.forYouStatus) {
+      els.forYouStatus.textContent = `Reading ${taste.ownedCount} owned card${taste.ownedCount === 1 ? "" : "s"} for matching ink.`;
+    }
+    if (els.forYouEmpty) els.forYouEmpty.hidden = true;
+
+    const scored = [];
+    for (const card of catalog.cards) {
+      if (isOwned(card.id)) continue;
+      if (!isWishable(card.id)) continue;
+      const { score, reason } = scoreRecommendation(card, taste);
+      if (score < 8) continue;
+      scored.push({ card, score, reason });
+    }
+    scored.sort((a, b) => b.score - a.score || String(a.card.name || "").localeCompare(String(b.card.name || "")));
+
+    if (!scored.length) {
+      if (els.forYouEmpty) {
+        els.forYouEmpty.hidden = false;
+        els.forYouEmpty.textContent =
+          "Her inkbound is wonderfully specific — no clear lookalikes right now. Add a few more owned cards and try again.";
+      }
+      return;
+    }
+
+    const used = new Set();
+    appendRecoShelf(
+      els.forYouShelves,
+      "Top picks for her",
+      "Closest matches to the realm she’s collecting.",
+      scored.slice(0, 12),
+      used
+    );
+
+    for (const [name] of taste.names.slice(0, 3)) {
+      const items = scored.filter((s) => s.card.name === name).slice(0, 8);
+      appendRecoShelf(
+        els.forYouShelves,
+        `More ${name}`,
+        `She already has a soft spot for ${name}.`,
+        items,
+        used
+      );
+    }
+
+    for (const [story] of taste.stories.slice(0, 3)) {
+      const items = scored.filter((s) => s.card.story === story).slice(0, 8);
+      appendRecoShelf(
+        els.forYouShelves,
+        `More from ${story}`,
+        "Because that story already lives in the nest.",
+        items,
+        used
+      );
+    }
+
+    if (taste.lovesSpecials) {
+      const items = scored.filter((s) => isSpecialInk(s.card)).slice(0, 10);
+      appendRecoShelf(
+        els.forYouShelves,
+        "Special & enchanted sparkle",
+        "Rarer finishes in the spirit of what she keeps.",
+        items,
+        used
+      );
+    }
+
+    const leftovers = scored.filter((s) => !used.has(String(s.card.id))).slice(0, 10);
+    appendRecoShelf(
+      els.forYouShelves,
+      "Still worth a peek",
+      "Nearby flavours from the inkbound’s pattern.",
+      leftovers,
+      used
+    );
   }
 
   async function loadComingSoon(forceLive) {
@@ -1120,6 +1562,10 @@
     els.modalSet.textContent = card.setName || card.setCode || "—";
     els.modalType.textContent = card.type || "—";
     els.modalColor.textContent = card.color || "—";
+    if (els.modalOwn) {
+      els.modalOwn.hidden = !isWishable(card.id);
+      syncModalOwnBtn();
+    }
     if (els.modalWish) {
       els.modalWish.hidden = !isWishable(card.id);
       syncModalWishBtn();

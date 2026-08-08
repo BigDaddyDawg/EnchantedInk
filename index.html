@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <div class="sky" aria-hidden="true">
@@ -43,6 +43,11 @@
 
   <nav class="tabs" aria-label="Gallery sections">
     <button type="button" class="tab is-active" data-tab="collection" id="tabCollection">Collection</button>
+    <button type="button" class="tab" data-tab="owned" id="tabOwned">
+      Owned
+      <span class="tab-count" id="ownedTabCount" hidden>0</span>
+    </button>
+    <button type="button" class="tab" data-tab="foryou" id="tabForYou">For You</button>
     <button type="button" class="tab" data-tab="wishlist" id="tabWishlist">
       Wishlist
       <span class="tab-count" id="wishTabCount" hidden>0</span>
@@ -107,6 +112,31 @@
     <p class="empty" id="emptyState" hidden>No cards match that spell. Try another search.</p>
   </main>
   </div>
+
+  <section id="panelOwned" class="owned" hidden>
+    <div class="section-head">
+      <h2>Owned</h2>
+      <p id="ownedCountLabel">Shared family nest — anyone can tick these off.</p>
+    </div>
+    <div class="filters wish-filters" id="ownedFilters">
+      <label class="search-wrap">
+        <span class="sr-only">Search owned</span>
+        <input id="ownedSearch" type="search" placeholder="Search your owned cards…" autocomplete="off" />
+      </label>
+    </div>
+    <div class="grid" id="ownedGrid" aria-live="polite"></div>
+    <p class="empty" id="ownedEmpty" hidden>Nothing marked as owned yet. Browse the collection and tap a check to begin.</p>
+  </section>
+
+  <section id="panelForYou" class="foryou" hidden>
+    <div class="section-head">
+      <h2>For You</h2>
+      <p id="forYouStatus">Soft picks shaped by what’s already in her inkbound.</p>
+    </div>
+    <div class="taste-pills" id="forYouTaste" hidden></div>
+    <div id="forYouShelves"></div>
+    <p class="empty" id="forYouEmpty" hidden>Mark a few cards as owned, and we’ll nestle lookalike suggestions here.</p>
+  </section>
 
   <section id="panelWishlist" class="wishlist" hidden>
     <div class="section-head">
@@ -186,7 +216,10 @@
             <p class="modal-price-note" id="modalPriceNote">Approx. current selling · Lorcast</p>
           </div>
         </dl>
-        <button type="button" class="wish-toggle" id="modalWish" aria-pressed="false">Add to wishlist</button>
+        <div class="modal-actions">
+          <button type="button" class="wish-toggle" id="modalOwn" aria-pressed="false">Mark owned</button>
+          <button type="button" class="wish-toggle" id="modalWish" aria-pressed="false">Add to wishlist</button>
+        </div>
       </div>
     </div>
   </dialog>
@@ -199,6 +232,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="family-vault-config.js"></script>
   <script src="family-list-sync.js?v=shared2"></script>
-  <script src="app.js?v=kiratto1" defer></script>
+  <script src="app.js?v=owned1" defer></script>
 </body>
 </html>

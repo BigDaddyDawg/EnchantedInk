@@ -408,6 +408,8 @@ html[data-universe="kiratto"] .sky {
 .favorites,
 .gallery,
 .wishlist,
+.owned,
+.foryou,
 .coming {
   width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;
@@ -415,6 +417,74 @@ html[data-universe="kiratto"] .sky {
 }
 
 .favorites { padding-top: 0.5rem; }
+
+.taste-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 1.35rem;
+}
+
+.taste-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 197, 106, 0.28);
+  background: rgba(8, 16, 30, 0.55);
+  color: var(--gold-soft);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+.reco-shelf {
+  margin: 0 0 2rem;
+}
+
+.reco-shelf-head {
+  margin: 0 0 0.85rem;
+}
+
+.reco-shelf-head h3 {
+  margin: 0;
+  font-family: var(--font-display, "Cinzel", serif);
+  font-size: clamp(1.2rem, 2.3vw, 1.5rem);
+  font-weight: 600;
+  color: #f5f0e4;
+}
+
+.reco-shelf-head p {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.reco-grid {
+  align-items: start;
+}
+
+.reco-wrap {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.reco-reason {
+  margin: 0;
+  padding: 0 0.15rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.modal-actions {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.1rem;
+}
+
+.modal-actions .wish-toggle {
+  margin-top: 0;
+}
 
 /* —— Favorite portals —— */
 .fav-grid {
@@ -669,6 +739,27 @@ html[data-universe="kiratto"] .sky {
   transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
+.own-btn {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  z-index: 3;
+  width: 2.15rem;
+  height: 2.15rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(146, 214, 198, 0.4);
+  border-radius: 999px;
+  padding: 0;
+  cursor: pointer;
+  color: #9be7d8;
+  background: rgba(8, 16, 30, 0.72);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.own-btn svg,
 .wish-btn svg {
   width: 1.05rem;
   height: 1.05rem;
@@ -676,6 +767,20 @@ html[data-universe="kiratto"] .sky {
   stroke: currentColor;
   stroke-width: 1.8;
   stroke-linejoin: round;
+}
+
+.own-btn:hover,
+.own-btn:focus-visible {
+  transform: scale(1.08);
+  color: #c9fff3;
+  border-color: rgba(146, 214, 198, 0.75);
+  outline: none;
+}
+
+.own-btn.is-on {
+  color: #062824;
+  border-color: transparent;
+  background: linear-gradient(135deg, #b8fff8, #5ecfc7 55%, #3aa8a2);
 }
 
 .wish-btn:hover,

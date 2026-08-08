@@ -1,9 +1,9 @@
-const CACHE_NAME = "enchantedink-static-v4";
+const CACHE_NAME = "enchantedink-static-v5";
 const CORE_ASSETS = [
   "./",
   "index.html",
-  "styles.css?v=4",
-  "app.js?v=kiratto1",
+  "styles.css?v=5",
+  "app.js?v=owned1",
   "manifest.webmanifest?v=3",
   "icon.svg?v=2",
   "icon-192.png",
