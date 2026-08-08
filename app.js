@@ -1,16 +1,141 @@
 (() => {
   const PAGE_SIZE = 48;
-  const WISHLIST_KEY = "enchantedink_wishlist_v1";
-  const NEWS_URL = "https://www.disneylorcana.com/en-US/news/";
-  const LIVE_NEWS_URL = `https://r.jina.ai/http://www.disneylorcana.com/en-US/news/`;
+  const UNIVERSE_KEY = "enchantedink_universe_v1";
   const LORCAST_CARD_URL = "https://api.lorcast.com/v0/cards";
   const PRICE_CACHE_TTL_MS = 60 * 60 * 1000;
-  const FAV_PICKS = {
-    "Toy Story": ["Woody", "Buzz Lightyear", "Jessie"],
-    "Winnie the Pooh": ["Winnie the Pooh", "Tigger", "Piglet"],
-    "Lilo & Stitch": ["Stitch", "Lilo", "Angel"],
-  };
   const HEART_SVG = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.2s-6.7-4.2-9.1-8.1C1.2 9.4 2.1 6.4 5 5.4c1.8-.6 3.7.1 4.8 1.5C11 5.5 12.9 4.8 14.7 5.4c2.9 1 3.8 4 2.1 6.7-2.4 3.9-9.1 8.1-9.1 8.1z"/></svg>`;
+
+  const UNIVERSES = {
+    lorcana: {
+      id: "lorcana",
+      brand: "Enchanted Ink",
+      tagline: "Every Disney Lorcana card, waiting to be found.",
+      catalogUrl: "./data/cards.json?v=4",
+      comingUrl: "./data/coming-soon.json?v=4",
+      wishlistKey: "enchantedink_wishlist_v1",
+      appSlug: "enchantedink",
+      newsUrl: "https://www.disneylorcana.com/en-US/news/",
+      liveNewsUrl: "https://r.jina.ai/http://www.disneylorcana.com/en-US/news/",
+      hasMarketPrices: true,
+      liveNews: true,
+      themeColor: "#07111f",
+      documentTitle: "Enchanted Ink · Lorcana Gallery",
+      countAllLabel: "{n} cards across every released set",
+      emptySearch: "No cards match that spell. Try another search.",
+      searchPlaceholder: "Search by name or character…",
+      favHeading: "Whispers from the Ink",
+      favBlurb: "Start with the stories closest to her heart.",
+      collectionHeading: "The Full Collection",
+      setLabel: "Set",
+      setAll: "All sets",
+      rarityLabel: "Rarity",
+      rarityAll: "All rarities",
+      storyLabel: "Character / Story",
+      storyAll: "All stories",
+      comingScout: "Peeking into the next chapter of Lorcana…",
+      revealsEmpty:
+        "No early card art yet — as soon as Hyperia City (and friends) are teased, they’ll sparkle here.",
+      comingSetsLabel: "Next sets on the horizon",
+      comingNewsLabel: "Fresh from the realm",
+      comingRevealsLabel: "Newly revealed cards",
+      modalStoryFallback: "Lorcana",
+      modalRarityLabel: "Rarity",
+      modalSetLabel: "Set",
+      modalTypeLabel: "Type",
+      modalColorLabel: "Ink",
+      footerMainHtml:
+        'Enchanted Ink · fan gallery · card data via <a href="https://lorcanajson.org/" rel="noopener" target="_blank">LorcanaJSON</a>',
+      footerFine:
+        "Disney Lorcana and all related marks are trademarks of Disney and Ravensburger. Not affiliated with Disney or Ravensburger.",
+      favorites: [
+        {
+          story: "Toy Story",
+          title: "Toy Story",
+          kicker: "To infinity…",
+          className: "fav-toy",
+          pickNames: ["Woody", "Buzz Lightyear", "Jessie"],
+          preferType: "Character",
+        },
+        {
+          story: "Winnie the Pooh",
+          title: "Winnie the Pooh",
+          kicker: "A little smackerel",
+          className: "fav-pooh",
+          pickNames: ["Winnie the Pooh", "Tigger", "Piglet"],
+          preferType: "Character",
+        },
+        {
+          story: "Lilo & Stitch",
+          title: "Lilo & Stitch",
+          kicker: "Ohana means family",
+          className: "fav-stitch",
+          pickNames: ["Stitch", "Lilo", "Angel"],
+          preferType: "Character",
+        },
+      ],
+    },
+    kiratto: {
+      id: "kiratto",
+      brand: "Enchanted Ink",
+      tagline: "Tenyo’s shimmering Disney Art Gallery — every Kiratto card.",
+      catalogUrl: "./data/kiratto-cards.json?v=1",
+      comingUrl: "./data/kiratto-coming-soon.json?v=1",
+      wishlistKey: "kirattogallery_wishlist_v1",
+      appSlug: "kirattogallery",
+      newsUrl: "https://tenyo.jp/agcard",
+      liveNewsUrl: null,
+      hasMarketPrices: false,
+      liveNews: false,
+      themeColor: "#140c18",
+      documentTitle: "Enchanted Ink · Kiratto Gallery",
+      countAllLabel: "{n} sparkling gallery cards across Blue, Red & Green packs",
+      emptySearch: "No cards match that shimmer. Try another search.",
+      searchPlaceholder: "Search Kiratto character or series…",
+      favHeading: "Spark favorites",
+      favBlurb: "Jump to the faces that light up first.",
+      collectionHeading: "The Kiratto Gallery",
+      setLabel: "Pack",
+      setAll: "All packs",
+      rarityLabel: "Finish",
+      rarityAll: "All finishes",
+      storyLabel: "Character",
+      storyAll: "All characters",
+      comingScout: "Checking the Tenyo Kiratto lineup…",
+      revealsEmpty: "The full Kiratto line is already in the gallery — new waves will sparkle here.",
+      comingSetsLabel: "Pack lineup",
+      comingNewsLabel: "From Tenyo",
+      comingRevealsLabel: "Gallery notes",
+      modalStoryFallback: "Kiratto",
+      modalRarityLabel: "Finish",
+      modalSetLabel: "Pack",
+      modalTypeLabel: "Type",
+      modalColorLabel: "Color",
+      footerMainHtml: "Enchanted Ink · Kiratto Art Gallery · art via Tenyo",
+      footerFine:
+        "Disney characters and Kiratto Art Gallery cards are trademarks of their respective owners. Not affiliated with Disney or Tenyo.",
+      favorites: [
+        { story: "Mickey Mouse", title: "Mickey Mouse", kicker: "It’s Magic!", className: "fav-toy" },
+        { story: "Rapunzel", title: "Rapunzel", kicker: "Musical Magic", className: "fav-pooh" },
+        { story: "Stitch", title: "Stitch", kicker: "Ohana", className: "fav-stitch" },
+      ],
+    },
+  };
+
+  function readSavedUniverse() {
+    try {
+      const saved = localStorage.getItem(UNIVERSE_KEY);
+      if (saved && UNIVERSES[saved]) return saved;
+    } catch (_) {}
+    return "lorcana";
+  }
+
+  let universeId = readSavedUniverse();
+  let universe = UNIVERSES[universeId];
+  let WISHLIST_KEY = universe.wishlistKey;
+  let NEWS_URL = universe.newsUrl;
+  let LIVE_NEWS_URL = universe.liveNewsUrl;
+  let switchingUniverse = false;
+  let uiBound = false;
 
   const els = {
     grid: document.getElementById("cardGrid"),
@@ -37,6 +162,10 @@
     modalPrice: document.getElementById("modalPrice"),
     modalPriceNote: document.getElementById("modalPriceNote"),
     modalWish: document.getElementById("modalWish"),
+    modalRarityLabel: document.getElementById("modalRarityLabel"),
+    modalSetLabel: document.getElementById("modalSetLabel"),
+    modalTypeLabel: document.getElementById("modalTypeLabel"),
+    modalColorLabel: document.getElementById("modalColorLabel"),
     panelCollection: document.getElementById("panelCollection"),
     panelWishlist: document.getElementById("panelWishlist"),
     panelComing: document.getElementById("panelComing"),
@@ -54,6 +183,25 @@
     newsList: document.getElementById("newsList"),
     revealsGrid: document.getElementById("revealsGrid"),
     revealsNote: document.getElementById("revealsNote"),
+    brandTitle: document.getElementById("brandTitle"),
+    brandTagline: document.getElementById("brandTagline"),
+    favGrid: document.getElementById("favGrid"),
+    favHeading: document.getElementById("favHeading"),
+    favBlurb: document.getElementById("favBlurb"),
+    collectionHeading: document.getElementById("collectionHeading"),
+    setFilterLabel: document.getElementById("setFilterLabel"),
+    rarityFilterLabel: document.getElementById("rarityFilterLabel"),
+    storyFilterLabel: document.getElementById("storyFilterLabel"),
+    storyFilterAll: document.getElementById("storyFilterAll"),
+    comingSetsLabel: document.getElementById("comingSetsLabel"),
+    comingNewsLabel: document.getElementById("comingNewsLabel"),
+    comingRevealsLabel: document.getElementById("comingRevealsLabel"),
+    footerMain: document.getElementById("footerMain"),
+    footerFine: document.getElementById("footerFine"),
+    universeLorcana: document.getElementById("universeLorcana"),
+    universeKiratto: document.getElementById("universeKiratto"),
+    universeTransition: document.getElementById("universeTransition"),
+    themeColorMeta: document.querySelector('meta[name="theme-color"]'),
   };
 
   /** @type {{cards: any[], sets: any[], rarities: string[], stories: string[], count?: number}} */
@@ -82,6 +230,7 @@
   let wishSync = null;
 
   initStars();
+  applyUniverseChrome();
   loadWishlist();
   registerServiceWorker();
   boot();
@@ -90,7 +239,7 @@
     if (!("serviceWorker" in navigator)) return;
     window.addEventListener("load", () => {
       navigator.serviceWorker
-        .register("service-worker.js?v=2")
+        .register("service-worker.js?v=3")
         .then((reg) => {
           if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
           reg.update().catch(() => {});
@@ -114,13 +263,16 @@
 
   async function boot() {
     try {
-      const res = await fetch("./data/cards.json");
+      const res = await fetch(universe.catalogUrl);
       if (!res.ok) throw new Error(`Failed to load catalog (${res.status})`);
       catalog = await res.json();
       await initFamilyVault();
       fillFilters();
       paintFavorites();
-      bindUI();
+      if (!uiBound) {
+        bindUI();
+        uiBound = true;
+      }
       applyFilters();
       updateWishChrome();
       maybeOpenTabFromHash();
@@ -130,10 +282,101 @@
     }
   }
 
+  function applyUniverseChrome() {
+    document.documentElement.setAttribute("data-universe", universeId);
+    if (els.themeColorMeta) els.themeColorMeta.setAttribute("content", universe.themeColor);
+    document.title = universe.documentTitle;
+    if (els.brandTitle) els.brandTitle.textContent = universe.brand;
+    if (els.brandTagline) els.brandTagline.textContent = universe.tagline;
+    if (els.favHeading) els.favHeading.textContent = universe.favHeading;
+    if (els.favBlurb) els.favBlurb.textContent = universe.favBlurb;
+    if (els.collectionHeading) els.collectionHeading.textContent = universe.collectionHeading;
+    if (els.setFilterLabel) els.setFilterLabel.textContent = universe.setLabel;
+    if (els.rarityFilterLabel) els.rarityFilterLabel.textContent = universe.rarityLabel;
+    if (els.storyFilterLabel) els.storyFilterLabel.textContent = universe.storyLabel;
+    if (els.comingSetsLabel) els.comingSetsLabel.textContent = universe.comingSetsLabel;
+    if (els.comingNewsLabel) els.comingNewsLabel.textContent = universe.comingNewsLabel;
+    if (els.comingRevealsLabel) els.comingRevealsLabel.textContent = universe.comingRevealsLabel;
+    if (els.modalRarityLabel) els.modalRarityLabel.textContent = universe.modalRarityLabel;
+    if (els.modalSetLabel) els.modalSetLabel.textContent = universe.modalSetLabel;
+    if (els.modalTypeLabel) els.modalTypeLabel.textContent = universe.modalTypeLabel;
+    if (els.modalColorLabel) els.modalColorLabel.textContent = universe.modalColorLabel;
+    if (els.footerMain) els.footerMain.innerHTML = universe.footerMainHtml;
+    if (els.footerFine) els.footerFine.textContent = universe.footerFine;
+    if (els.empty) els.empty.textContent = universe.emptySearch;
+    if (els.search) els.search.placeholder = universe.searchPlaceholder;
+    if (els.comingStatus && !comingLoaded) els.comingStatus.textContent = universe.comingScout;
+    if (els.revealsNote) els.revealsNote.textContent = universe.revealsEmpty;
+
+    document.querySelectorAll(".universe-tab").forEach((btn) => {
+      const active = btn.getAttribute("data-universe") === universeId;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+    });
+  }
+
+  function sleep(ms) {
+    return new Promise((resolve) => window.setTimeout(resolve, ms));
+  }
+
+  async function playUniverseTransition() {
+    const layer = els.universeTransition;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!layer || reduce) return;
+    layer.hidden = false;
+    layer.setAttribute("aria-hidden", "false");
+    layer.classList.remove("is-flash");
+    layer.classList.add("is-on");
+    await sleep(700);
+    layer.classList.add("is-flash");
+    await sleep(260);
+    layer.classList.remove("is-on", "is-flash");
+    layer.hidden = true;
+    layer.setAttribute("aria-hidden", "true");
+  }
+
+  async function switchUniverse(nextId) {
+    if (!UNIVERSES[nextId] || nextId === universeId || switchingUniverse) return;
+    switchingUniverse = true;
+    try {
+      await playUniverseTransition();
+      universeId = nextId;
+      universe = UNIVERSES[universeId];
+      WISHLIST_KEY = universe.wishlistKey;
+      NEWS_URL = universe.newsUrl;
+      LIVE_NEWS_URL = universe.liveNewsUrl;
+      try {
+        localStorage.setItem(UNIVERSE_KEY, universeId);
+      } catch (_) {}
+
+      if (wishSync?.unsubscribe) wishSync.unsubscribe();
+      wishSync = null;
+
+      comingLoaded = false;
+      comingBusy = false;
+      comingData = null;
+      comingDisplayCards = [];
+      modalCardId = null;
+      modalCard = null;
+      if (els.modal?.open) els.modal.close();
+
+      applyUniverseChrome();
+      if (els.search) els.search.value = "";
+      if (els.setFilter) els.setFilter.value = "";
+      if (els.rarityFilter) els.rarityFilter.value = "";
+      if (els.storyFilter) els.storyFilter.value = "";
+      loadWishlist();
+      await boot();
+      showTab("collection");
+    } finally {
+      switchingUniverse = false;
+    }
+  }
+
   async function initFamilyVault() {
     if (!window.FamilyListSync?.create) return;
     wishSync = window.FamilyListSync.create({
-      app: "enchantedink",
+      app: universe.appSlug,
       listType: "wishlist",
       storageKey: WISHLIST_KEY,
       onRemoteChange: (ids) => {
@@ -216,6 +459,10 @@
   }
 
   function refreshModalPrice() {
+    if (!universe.hasMarketPrices) {
+      setModalPriceState("—", "", false);
+      return;
+    }
     if (!modalCard || !isWishable(modalCard.id) || !isWished(modalCard.id)) {
       setModalPriceState("—", "Approx. current selling · Lorcast", false);
       return;
@@ -242,7 +489,9 @@
     setModalPriceState("Looking up…", "Approx. current selling · Lorcast", true);
 
     try {
-      const res = await fetch(`${LORCAST_CARD_URL}/${encodeURIComponent(setCode)}/${encodeURIComponent(number)}`);
+      const res = await fetch(
+        `${LORCAST_CARD_URL}/${encodeURIComponent(setCode)}/${encodeURIComponent(number)}`
+      );
       if (token !== modalPriceToken || modalCardId !== key) return;
       if (!res.ok) {
         setModalPriceState("Unavailable", "No live listing found for this print", true);
@@ -264,41 +513,76 @@
   }
 
   function fillFilters() {
-    for (const set of catalog.sets) {
-      const opt = document.createElement("option");
-      opt.value = set.code;
-      opt.textContent = set.name;
-      els.setFilter.appendChild(opt);
+    if (els.setFilter) {
+      els.setFilter.innerHTML = `<option value="">${escapeHtml(universe.setAll)}</option>`;
+      for (const set of catalog.sets || []) {
+        const opt = document.createElement("option");
+        opt.value = set.code;
+        opt.textContent = set.name;
+        els.setFilter.appendChild(opt);
+      }
     }
-    for (const rarity of catalog.rarities) {
-      const opt = document.createElement("option");
-      opt.value = rarity;
-      opt.textContent = rarity;
-      els.rarityFilter.appendChild(opt);
+    if (els.rarityFilter) {
+      els.rarityFilter.innerHTML = `<option value="">${escapeHtml(universe.rarityAll)}</option>`;
+      for (const rarity of catalog.rarities || []) {
+        const opt = document.createElement("option");
+        opt.value = rarity;
+        opt.textContent = rarity;
+        els.rarityFilter.appendChild(opt);
+      }
     }
-    for (const story of catalog.stories) {
-      const opt = document.createElement("option");
-      opt.value = story;
-      opt.textContent = story;
-      els.storyFilter.appendChild(opt);
+    if (els.storyFilter) {
+      els.storyFilter.innerHTML = "";
+      const all = document.createElement("option");
+      all.value = "";
+      all.id = "storyFilterAll";
+      all.textContent = universe.storyAll;
+      els.storyFilter.appendChild(all);
+      els.storyFilterAll = all;
+      for (const story of catalog.stories || []) {
+        const opt = document.createElement("option");
+        opt.value = story;
+        opt.textContent = story;
+        els.storyFilter.appendChild(opt);
+      }
     }
   }
 
   function paintFavorites() {
-    const map = {
-      "Toy Story": "favArtToy",
-      "Winnie the Pooh": "favArtPooh",
-      "Lilo & Stitch": "favArtStitch",
-    };
-    for (const [story, id] of Object.entries(map)) {
-      const art = document.getElementById(id);
-      if (!art) continue;
-      const names = FAV_PICKS[story] || [];
-      const card =
-        catalog.cards.find(
-          (c) => c.story === story && names.includes(c.name) && c.type === "Character"
-        ) || catalog.cards.find((c) => c.story === story && c.type === "Character");
-      if (card) art.style.backgroundImage = `url("${card.full || card.thumb}")`;
+    const grid = els.favGrid;
+    if (!grid) return;
+    grid.innerHTML = "";
+    for (const fav of universe.favorites) {
+      const btn = document.createElement("button");
+      btn.className = `fav-card ${fav.className || ""}`.trim();
+      btn.type = "button";
+      btn.dataset.story = fav.story;
+      btn.innerHTML = `
+        <span class="fav-art"></span>
+        <span class="fav-copy">
+          <span class="fav-kicker">${escapeHtml(fav.kicker || "")}</span>
+          <span class="fav-title">${escapeHtml(fav.title || fav.story)}</span>
+        </span>
+      `;
+      const art = btn.querySelector(".fav-art");
+      const picks = fav.pickNames || [];
+      let card = null;
+      if (picks.length) {
+        card = catalog.cards.find(
+          (c) =>
+            c.story === fav.story &&
+            picks.includes(c.name) &&
+            (!fav.preferType || c.type === fav.preferType)
+        );
+      }
+      if (!card) {
+        card =
+          catalog.cards.find(
+            (c) => c.story === fav.story && (!fav.preferType || c.type === fav.preferType)
+          ) || catalog.cards.find((c) => c.story === fav.story || c.name === fav.story);
+      }
+      if (card && art) art.style.backgroundImage = `url("${card.full || card.thumb}")`;
+      grid.appendChild(btn);
     }
   }
 
@@ -318,17 +602,17 @@
       applyFilters();
     });
 
-    document.querySelectorAll(".fav-card").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        showTab("collection");
-        const story = btn.getAttribute("data-story") || "";
-        els.search.value = "";
-        els.setFilter.value = "";
-        els.rarityFilter.value = "";
-        els.storyFilter.value = story;
-        applyFilters();
-        document.getElementById("collection")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
+    els.favGrid?.addEventListener("click", (e) => {
+      const btn = e.target.closest(".fav-card");
+      if (!btn) return;
+      showTab("collection");
+      const story = btn.getAttribute("data-story") || "";
+      els.search.value = "";
+      els.setFilter.value = "";
+      els.rarityFilter.value = "";
+      els.storyFilter.value = story;
+      applyFilters();
+      document.getElementById("collection")?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     els.grid.addEventListener("click", onGridClick);
@@ -362,6 +646,8 @@
       wishSearchTimer = setTimeout(renderWishlist, 160);
     });
     els.comingRefresh?.addEventListener("click", () => loadComingSoon(true));
+    els.universeLorcana?.addEventListener("click", () => switchUniverse("lorcana"));
+    els.universeKiratto?.addEventListener("click", () => switchUniverse("kiratto"));
     window.addEventListener("hashchange", maybeOpenTabFromHash);
   }
 
@@ -526,22 +812,25 @@
     els.comingRefresh.disabled = true;
     els.comingStatus.textContent = forceLive
       ? "Refreshing the latest whispers…"
-      : "Gathering upcoming sets and news…";
+      : universe.comingScout || "Gathering upcoming sets and news…";
 
     try {
       const stamp = Date.now();
-      const bakedRes = await fetch(`./data/coming-soon.json?t=${stamp}`, { cache: "no-store" });
-      if (!bakedRes.ok) throw new Error(`coming-soon.json ${bakedRes.status}`);
+      const bakedRes = await fetch(`${universe.comingUrl}${universe.comingUrl.includes("?") ? "&" : "?"}t=${stamp}`, {
+        cache: "no-store",
+      });
+      if (!bakedRes.ok) throw new Error(`${universe.comingUrl} ${bakedRes.status}`);
       comingData = await bakedRes.json();
 
-      // Live news pass — official site via CORS-friendly reader when she opens the tab
       let liveNews = null;
-      try {
-        liveNews = await fetchLiveNews();
-      } catch (err) {
-        console.warn("Live news unavailable, using baked copy.", err);
+      if (universe.liveNews && LIVE_NEWS_URL) {
+        try {
+          liveNews = await fetchLiveNews();
+        } catch (err) {
+          console.warn("Live news unavailable, using baked copy.", err);
+        }
+        if (liveNews?.length) comingData.news = liveNews;
       }
-      if (liveNews?.length) comingData.news = liveNews;
 
       renderComingSoon();
       comingLoaded = true;
@@ -617,7 +906,6 @@
   }
 
   function parseLiveNewsMarkdown(md) {
-    // Prefer baked HTML-quality items if markdown is too noisy; still salvage titles.
     const items = [];
     const seen = new Set();
     const lines = md.split(/\r?\n/);
@@ -630,8 +918,12 @@
       if (title.length < 8 || title.length > 120) continue;
       const skip = /^(US|News|Latest News|Featured News|All News|Products|Card Gallery|Challenge|Store Locator)$/i;
       if (skip.test(title)) continue;
-      if (/Attack of the Vine!|Collection Starter|Companion App|Hyperia City|Winterspell|Fabled|Into the Inkdark/i.test(title) && title.length < 24) {
-        // Product nav noise
+      if (
+        /Attack of the Vine!|Collection Starter|Companion App|Hyperia City|Winterspell|Fabled|Into the Inkdark/i.test(
+          title
+        ) &&
+        title.length < 24
+      ) {
         if (!/What’s New|Press Release|Creative Spotlight|Release Notes/i.test(title)) continue;
       }
       const key = title.toLowerCase();
@@ -703,7 +995,9 @@
 
     const news = comingData?.news || [];
     if (!news.length) {
-      els.newsList.innerHTML = `<p class="coming-note">No headlines yet — tap Refresh, or visit the <a href="${NEWS_URL}" target="_blank" rel="noopener">official news page</a>.</p>`;
+      els.newsList.innerHTML = `<p class="coming-note">No headlines yet — tap Refresh, or visit the <a href="${escapeAttr(
+        NEWS_URL
+      )}" target="_blank" rel="noopener">official page</a>.</p>`;
     } else {
       els.newsList.innerHTML = news
         .map((n) => {
@@ -752,7 +1046,7 @@
       ? `${reveals.length} early reveal${reveals.length === 1 ? "" : "s"} from upcoming sets`
       : previewArts.length
         ? `${previewArts.length} official preview image${previewArts.length === 1 ? "" : "s"} — full spoilers will appear here as they’re revealed`
-        : "No early card art yet — as soon as Hyperia City (and friends) are teased, they’ll sparkle here.";
+        : universe.revealsEmpty;
     els.revealsGrid.innerHTML = "";
     showCards.forEach((card, i) => {
       els.revealsGrid.appendChild(makeCardTile(card, i));
@@ -795,7 +1089,7 @@
     if (els.search.value.trim()) parts.push(`“${els.search.value.trim()}”`);
 
     if (n === total && !parts.length) {
-      els.countLabel.textContent = `${total.toLocaleString()} cards across every released set`;
+      els.countLabel.textContent = universe.countAllLabel.replace("{n}", total.toLocaleString());
     } else {
       els.countLabel.textContent = `${n.toLocaleString()} card${n === 1 ? "" : "s"} found`;
     }
@@ -819,7 +1113,7 @@
     modalCard = card;
     els.modalImg.src = card.full || card.thumb;
     els.modalImg.alt = card.fullName;
-    els.modalStory.textContent = card.story || "Lorcana";
+    els.modalStory.textContent = card.story || universe.modalStoryFallback;
     els.modalName.textContent = card.name || card.fullName;
     els.modalVersion.textContent = card.version ? card.version : card.fullName;
     els.modalRarity.textContent = card.rarity || "—";

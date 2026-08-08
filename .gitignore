@@ -7,3 +7,10 @@ Thumbs.db
 
 # Local raw downloads
 data/allCards.raw.json
+
+# Scrapes / build artifacts
+scripts/_agcard_cache.html
+scripts/_*.txt
+scripts/_*.json
+scripts/__pycache__/
+_probe_funko.html

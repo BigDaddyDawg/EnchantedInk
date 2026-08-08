@@ -1,4 +1,5 @@
-:root {
+:root,
+html[data-universe="lorcana"] {
   --night: #07111f;
   --night-2: #0d1a30;
   --ink: #eef3ff;
@@ -8,6 +9,7 @@
   --honey: #d4a24c;
   --seafoam: #6ed6d0;
   --toy-red: #e85a4f;
+  --accent-rgb: 232, 197, 106;
   --line: rgba(232, 197, 106, 0.22);
   --glass: rgba(12, 24, 44, 0.62);
   --radius: 18px;
@@ -15,6 +17,24 @@
   --font-brand: "Cinzel", Georgia, serif;
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Nunito", system-ui, sans-serif;
+  --universe-bar-top: rgba(7, 17, 31, 0.94);
+}
+
+html[data-universe="kiratto"] {
+  --night: #140c18;
+  --night-2: #1f1228;
+  --ink: #fff6f0;
+  --muted: #c9aeb8;
+  --gold: #f0c27a;
+  --gold-soft: #ffe0a8;
+  --honey: #e8a05a;
+  --seafoam: #f4a6c1;
+  --toy-red: #e5798a;
+  --accent-rgb: 240, 194, 122;
+  --line: rgba(240, 194, 122, 0.28);
+  --glass: rgba(28, 14, 32, 0.66);
+  --shadow: 0 24px 60px rgba(20, 0, 18, 0.5);
+  --universe-bar-top: rgba(20, 12, 24, 0.94);
 }
 
 *,
@@ -190,19 +210,126 @@ body {
   box-shadow: 0 16px 36px rgba(232, 197, 106, 0.4);
 }
 
+/* —— Universe switcher (Lorcana / Kiratto) —— */
+.universe-bar {
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 0.75rem 0.2rem;
+  padding-top: calc(0.75rem + env(safe-area-inset-top, 0px));
+  position: sticky;
+  top: 0;
+  z-index: 45;
+  background: linear-gradient(180deg, var(--universe-bar-top) 40%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+.universe-tabs {
+  display: inline-flex;
+  gap: 0;
+  padding: 0.28rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(var(--accent-rgb), 0.08);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.universe-tab {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+  padding: 0.58rem 1.3rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.universe-tab:hover {
+  color: var(--gold-soft);
+  transform: translateY(-1px);
+}
+
+.universe-tab.is-active {
+  color: #1a1208;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold) 55%, var(--honey));
+  box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.32);
+}
+
+html[data-universe="kiratto"] .sky {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(244, 166, 193, 0.22), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 85% 20%, rgba(240, 194, 122, 0.16), transparent 50%),
+    radial-gradient(ellipse 40% 35% at 10% 30%, rgba(229, 121, 138, 0.12), transparent 55%),
+    linear-gradient(180deg, #100814 0%, #1a1020 45%, #1f1228 100%);
+}
+
 /* —— Tabs —— */
 .tabs {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.45rem;
-  padding: 0.65rem 0.75rem;
-  padding-top: calc(0.65rem + env(safe-area-inset-top, 0px));
+  padding: 0.55rem 0.75rem 0.85rem;
   position: sticky;
-  top: 0;
+  top: 3.55rem;
   z-index: 40;
-  background: linear-gradient(180deg, rgba(7, 17, 31, 0.92), rgba(7, 17, 31, 0.72) 70%, transparent);
+  background: linear-gradient(180deg, var(--universe-bar-top), transparent 85%);
   backdrop-filter: blur(14px);
+}
+
+.universe-fx {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  background: radial-gradient(circle at 50% 42%, rgba(255, 244, 210, 0.18), transparent 42%),
+    rgba(4, 8, 16, 0.55);
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.universe-fx.is-on {
+  opacity: 1;
+  visibility: visible;
+}
+
+.universe-fx-sparkles {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 244, 210, 0.95) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 25%, rgba(246, 226, 164, 0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 40% 70%, rgba(255, 255, 255, 0.85) 0 1.5px, transparent 3px),
+    radial-gradient(circle at 80% 65%, rgba(244, 166, 193, 0.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 45%, rgba(232, 197, 106, 1) 0 2.5px, transparent 4px);
+  animation: sparkleDrift 0.9s ease-out both;
+}
+
+.universe-fx-flash {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 248, 230, 0.72);
+  opacity: 0;
+}
+
+.universe-fx.is-flash .universe-fx-flash {
+  animation: universeFlash 0.28s ease-out;
+}
+
+@keyframes sparkleDrift {
+  from { transform: scale(0.85); opacity: 0; }
+  40% { opacity: 1; }
+  to { transform: scale(1.08); opacity: 0.85; }
+}
+
+@keyframes universeFlash {
+  from { opacity: 0.75; }
+  to { opacity: 0; }
 }
 
 .tab {

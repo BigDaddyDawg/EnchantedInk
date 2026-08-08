@@ -1,7 +1,7 @@
 {
   "name": "Enchanted Ink",
   "short_name": "Enchanted Ink",
-  "description": "A magical gallery of every Disney Lorcana card ever released.",
+  "description": "A magical gallery of Disney Lorcana and Kiratto Art Gallery cards.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

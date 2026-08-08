@@ -1,0 +1,56 @@
+{
+  "generated": "2026-08-08T18:00:00Z",
+  "sources": {
+    "catalog": "https://tenyo.jp/agcard",
+    "shop": "https://tenyo.jp/agcard"
+  },
+  "upcomingSets": [
+    {
+      "code": "BLUE",
+      "name": "Kiratto Art Gallery · Blue Pack",
+      "releaseDate": null,
+      "type": "pack",
+      "number": 1,
+      "revealedCount": 50,
+      "blurb": "50 shimmering Disney & Pixar art cards — Crystal, Gold, and Crystal & Gold finishes. One box completes the Blue Pack set.",
+      "productUrl": "https://tenyo.jp/agcard",
+      "heroImage": "https://tenyo.jp/assets/agcard/img/lineup/b_pack.jpg",
+      "gallery": []
+    },
+    {
+      "code": "RED",
+      "name": "Kiratto Art Gallery · Red Pack",
+      "releaseDate": null,
+      "type": "pack",
+      "number": 2,
+      "revealedCount": 50,
+      "blurb": "A second 50-card wave with its own originals — same foil finishes as Blue, wholly different art.",
+      "productUrl": "https://tenyo.jp/agcard",
+      "heroImage": "https://tenyo.jp/assets/agcard/img/lineup/r_pack.jpg",
+      "gallery": []
+    },
+    {
+      "code": "GREEN",
+      "name": "Kiratto Art Gallery · Green Pack",
+      "releaseDate": null,
+      "type": "pack",
+      "number": 3,
+      "revealedCount": 50,
+      "blurb": "The third colorway — another complete 50-card gallery from Tenyo.",
+      "productUrl": "https://tenyo.jp/agcard",
+      "heroImage": "https://tenyo.jp/assets/agcard/img/lineup/g_pack.jpg",
+      "gallery": []
+    }
+  ],
+  "news": [
+    {
+      "title": "Tenyo Kiratto Art Gallery cards",
+      "date": "",
+      "category": "Catalog",
+      "summary": "All-original shimmering Disney art cards in Blue, Red, and Green packs. Browse the official Tenyo lineup for the full gallery.",
+      "url": "https://tenyo.jp/agcard",
+      "image": "https://tenyo.jp/assets/agcard/img/lineup/header.jpg"
+    }
+  ],
+  "reveals": []
+}

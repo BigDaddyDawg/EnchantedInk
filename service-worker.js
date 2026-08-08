@@ -1,15 +1,16 @@
-const CACHE_NAME = "enchantedink-static-v3";
+const CACHE_NAME = "enchantedink-static-v4";
 const CORE_ASSETS = [
   "./",
   "index.html",
-  "styles.css?v=3",
-  "app.js?v=wishprice1",
-  "manifest.webmanifest?v=2",
+  "styles.css?v=4",
+  "app.js?v=kiratto1",
+  "manifest.webmanifest?v=3",
   "icon.svg?v=2",
   "icon-192.png",
   "icon-512.png",
   "apple-touch-icon.png",
   "data/coming-soon.json",
+  "data/kiratto-coming-soon.json",
 ];
 
 /** Network-first with offline fallback — keeps the gallery fresh after publishes. */
@@ -65,7 +66,12 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (path.endsWith("/cards.json") || path.endsWith("/coming-soon.json")) {
+  if (
+    path.endsWith("/cards.json") ||
+    path.endsWith("/kiratto-cards.json") ||
+    path.endsWith("/coming-soon.json") ||
+    path.endsWith("/kiratto-coming-soon.json")
+  ) {
     event.respondWith(networkFirst(event.request));
     return;
   }
