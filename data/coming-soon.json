@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-05T16:29:13Z",
+  "generated": "2026-08-09T15:27:43Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -86,6 +86,14 @@
   "reveals": [],
   "news": [
     {
+      "title": "Learning the Disney Lorcana TCG: Important Beginners Tips",
+      "date": "August 6, 2026",
+      "category": "News",
+      "summary": "Becoming a better player",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/dlc_beginners-tips_ig_1920x1080.jpg"
+    },
+    {
       "title": "EVERYTHING YOU NEED TO KNOW ABOUT ROTATION AS A NEW PLAYER",
       "date": "August 4, 2026",
       "category": "News",
@@ -111,19 +119,11 @@
     },
     {
       "title": "New Multiplayer Format Open Beta",
-      "date": "July 28, 2026",
+      "date": "August 7, 2026",
       "category": "News",
       "summary": "A big announcement about Disney Lorcana.",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/dlc_coconut_gencon_1920x1080.jpg"
-    },
-    {
-      "title": "Power Panda Pop!",
-      "date": "July 23, 2026",
-      "category": "News",
-      "summary": "Attack of the Vine! welcomes Turning Red, one of my favorite Pixar films, into the realm of Disney Lorcana.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/atv-turning-red-deck/s13-atv_sustain_turning-red-deck_assetsvje5welvdv_1920x1080.jpg"
     },
     {
       "title": "Let’s Scare and Care Together!",
@@ -140,6 +140,14 @@
       "summary": "Attack of the Vine! is here and ready to invade your decks and your collections!",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/w-7koojgwseg_1920x1080.jpg"
+    },
+    {
+      "title": "Power Panda Pop!",
+      "date": "July 23, 2026",
+      "category": "News",
+      "summary": "Attack of the Vine! welcomes Turning Red, one of my favorite Pixar films, into the realm of Disney Lorcana.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/atv-turning-red-deck/s13-atv_sustain_turning-red-deck_assetsvje5welvdv_1920x1080.jpg"
     },
     {
       "title": "Disney Lorcana Trading Card Game at Gen Con 2026",
@@ -220,14 +228,6 @@
       "summary": "Collect Disney Lorcana TCG cards featuring glimmers from Pixar Animation Studios’ Monsters, Inc., Up, and Turning Red.",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/attack-of-the-vine-press-release/d6quksm9_1920x1080.jpg"
-    },
-    {
-      "title": "Curator’s Collection: Heroines Edition Announced",
-      "date": "June 18, 2026",
-      "category": "News",
-      "summary": "Celebrate six heroines from classic Disney stories in a new, special collection from the Disney Lorcana Trading Card Game.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/curators-collection-heroines/cc_heroines_article_1920x1080.jpg"
     }
   ]
 }
