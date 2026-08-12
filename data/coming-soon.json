@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-10T15:48:16Z",
+  "generated": "2026-08-12T15:56:52Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -85,6 +85,14 @@
   ],
   "reveals": [],
   "news": [
+    {
+      "title": "New Disney Lorcana TCG Playmat",
+      "date": "August 12, 2026",
+      "category": "News",
+      "summary": "Little John – Camp Cook Playmat Available Online",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/dlc-s13-ros-robin-hood-playmat_article_r1_article_1920x1080_v2.jpg"
+    },
     {
       "title": "Learning the Disney Lorcana TCG: Important Beginners Tips",
       "date": "August 6, 2026",
@@ -220,14 +228,6 @@
       "summary": "Discover how the vine has used this resource to grow and grow and grow.",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/flood-ink-evolved/w-kcluypgm1b_1920x1080.jpg"
-    },
-    {
-      "title": "Attack of the Vine! Press Release",
-      "date": "June 23, 2026",
-      "category": "News",
-      "summary": "Collect Disney Lorcana TCG cards featuring glimmers from Pixar Animation Studios’ Monsters, Inc., Up, and Turning Red.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/attack-of-the-vine-press-release/d6quksm9_1920x1080.jpg"
     }
   ]
 }
