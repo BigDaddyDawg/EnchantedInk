@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-12T15:56:52Z",
+  "generated": "2026-08-16T15:17:12Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -47,14 +47,16 @@
       "revealedCount": 0,
       "blurb": "Welcome to a town where metro meets fantasy! Here you can join the likes of heroes, princesses, and a magical wizard or two. Music and art bring these animated streets to life, but something nefarious is happening in the back alleys and waterways. Have a great visit, but keep an eye out for any funny business.",
       "productUrl": "https://www.disneylorcana.com/en-US/product/hyperia-city",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/pmemfhzh_1x1.jpg",
+      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/f9f2ym9x_1920x1080.jpg",
       "prereleaseLabel": "October 16, 2026",
       "releaseLabel": "October 23, 2026",
       "gallery": [
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/f9f2ym9x_1920x1080.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/f9f2ym9x_1x1.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/pmemfhzh_1x1.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_u468hffab6.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_6s4w2snbfe.png"
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/en/whtzuxaqg5_en.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/en/first-look/en_lz5fcutdbh.png.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/en/first-look/en_80nbmd70bz.png.png"
       ]
     },
     {
@@ -79,12 +81,37 @@
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/sqjdbc9ngl_1x1-4.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/s15-background/primary_tvmdt6p3df.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/s15-logo/en_jbs83nhsz6.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/s15-logo/en_jbs83nhsz6.png"
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/s15-logo/en_jbs83nhsz6.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/zmadyrbjhp.png"
       ]
+    },
+    {
+      "code": "16",
+      "name": "Cosmic Quest",
+      "releaseDate": null,
+      "prereleaseDate": null,
+      "hasAllCards": false,
+      "type": "expansion",
+      "number": 16,
+      "cardCounts": {
+        "base": 0,
+        "nonBase": 0,
+        "promo": 0
+      },
+      "revealedCount": 0,
+      "blurb": ""
     }
   ],
   "reveals": [],
   "news": [
+    {
+      "title": "Disney Lorcana TCG Announces Digital Game at D23",
+      "date": "August 15, 2026",
+      "category": "News",
+      "summary": "Ravensburger Announces Set Releases, Collector Boosters, and Disney Park Events",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/xrszzevabf_1920x1080_v2.jpg"
+    },
     {
       "title": "New Disney Lorcana TCG Playmat",
       "date": "August 12, 2026",
@@ -100,14 +127,6 @@
       "summary": "Becoming a better player",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/dlc_beginners-tips_ig_1920x1080.jpg"
-    },
-    {
-      "title": "EVERYTHING YOU NEED TO KNOW ABOUT ROTATION AS A NEW PLAYER",
-      "date": "August 4, 2026",
-      "category": "News",
-      "summary": "Let’s talk about what rotation means for the Disney Lorcana Trading Card Game",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/w-9yrjczjepc_1920x1080.jpg"
     },
     {
       "title": "Attack of the Vine! Survey",
@@ -132,6 +151,14 @@
       "summary": "A big announcement about Disney Lorcana.",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/dlc_coconut_gencon_1920x1080.jpg"
+    },
+    {
+      "title": "EVERYTHING YOU NEED TO KNOW ABOUT ROTATION AS A NEW PLAYER",
+      "date": "August 4, 2026",
+      "category": "Gameplay",
+      "summary": "Let’s talk about what rotation means for the Disney Lorcana Trading Card Game",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/w-9yrjczjepc_1920x1080.jpg"
     },
     {
       "title": "Let’s Scare and Care Together!",
@@ -220,14 +247,6 @@
       "summary": "Bryan Pereira takes home the gold trophy at the Disney Lorcana Challenge in Indianapolis",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/indianapolis/header.jpg"
-    },
-    {
-      "title": "Flood Ink Evolved",
-      "date": "June 23, 2026",
-      "category": "Gameplay",
-      "summary": "Discover how the vine has used this resource to grow and grow and grow.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/flood-ink-evolved/w-kcluypgm1b_1920x1080.jpg"
     }
   ]
 }
