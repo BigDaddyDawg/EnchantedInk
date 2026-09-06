@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-02T18:24:05Z",
+  "generated": "2026-09-06T17:29:40Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -105,6 +105,14 @@
   "reveals": [],
   "news": [
     {
+      "title": "North America Championship Recap",
+      "date": "September 3, 2026",
+      "category": "News",
+      "summary": "Dillon LeDuc takes the trophy with his Amber/Amethyst Deck",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/na-champs/w-ppccjvbvth_1920x1080.jpg"
+    },
+    {
       "title": "Disney Lorcana TCG Announces Digital Game at D23",
       "date": "August 15, 2026",
       "category": "News",
@@ -119,14 +127,6 @@
       "summary": "Little John – Camp Cook Playmat Available Online",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/dlc-s13-ros-robin-hood-playmat_article_r1_article_1920x1080_v2.jpg"
-    },
-    {
-      "title": "Learning the Disney Lorcana TCG: Important Beginners Tips",
-      "date": "August 6, 2026",
-      "category": "News",
-      "summary": "Becoming a better player",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/dlc_beginners-tips_ig_1920x1080.jpg"
     },
     {
       "title": "Attack of the Vine! Survey",
@@ -151,6 +151,14 @@
       "summary": "A big announcement about Disney Lorcana.",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/dlc_coconut_gencon_1920x1080.jpg"
+    },
+    {
+      "title": "Learning the Disney Lorcana TCG: Important Beginners Tips",
+      "date": "August 6, 2026",
+      "category": "Gameplay",
+      "summary": "Becoming a better player",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/dlc_beginners-tips_ig_1920x1080.jpg"
     },
     {
       "title": "EVERYTHING YOU NEED TO KNOW ABOUT ROTATION AS A NEW PLAYER",
@@ -239,14 +247,6 @@
       "summary": "Discover new Shift variants in Attack of the Vine! that are sure to change up your next quest.",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/variant-shift/w-gd89m6ydyi_1920x1080.jpg"
-    },
-    {
-      "title": "Disney Lorcana Challenge Indianapolis Recap",
-      "date": "June 25, 2026",
-      "category": "Organized Play",
-      "summary": "Bryan Pereira takes home the gold trophy at the Disney Lorcana Challenge in Indianapolis",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/indianapolis/header.jpg"
     }
   ]
 }
