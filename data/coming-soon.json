@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-14T19:41:08Z",
+  "generated": "2026-09-16T18:37:39Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -121,14 +121,6 @@
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/xrszzevabf_1920x1080_v2.jpg"
     },
     {
-      "title": "New Disney Lorcana TCG Playmat",
-      "date": "August 12, 2026",
-      "category": "News",
-      "summary": "Little John – Camp Cook Playmat Available Online",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/dlc-s13-ros-robin-hood-playmat_article_r1_article_1920x1080_v2.jpg"
-    },
-    {
       "title": "Attack of the Vine! Survey",
       "date": "August 3, 2026",
       "category": "News",
@@ -247,6 +239,14 @@
       "summary": "Discover new Shift variants in Attack of the Vine! that are sure to change up your next quest.",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/variant-shift/w-gd89m6ydyi_1920x1080.jpg"
+    },
+    {
+      "title": "Disney Lorcana Challenge Indianapolis Recap",
+      "date": "June 25, 2026",
+      "category": "Organized Play",
+      "summary": "Bryan Pereira takes home the gold trophy at the Disney Lorcana Challenge in Indianapolis",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/indianapolis/header.jpg"
     }
   ]
 }
