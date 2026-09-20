@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-16T18:37:39Z",
+  "generated": "2026-09-20T17:55:27Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -137,6 +137,14 @@
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/cq-hk--paris/93kedmfr8b_v3_1920x1080.jpg"
     },
     {
+      "title": "Europe Championship Recap",
+      "date": "September 17, 2026",
+      "category": "Events",
+      "summary": "Poland's Wojciech Złomek takes the golden trophy",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-jpffiyd4bi_1920x1080.jpg"
+    },
+    {
       "title": "New Multiplayer Format Open Beta",
       "date": "August 7, 2026",
       "category": "News",
@@ -239,14 +247,6 @@
       "summary": "Discover new Shift variants in Attack of the Vine! that are sure to change up your next quest.",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/variant-shift/w-gd89m6ydyi_1920x1080.jpg"
-    },
-    {
-      "title": "Disney Lorcana Challenge Indianapolis Recap",
-      "date": "June 25, 2026",
-      "category": "Organized Play",
-      "summary": "Bryan Pereira takes home the gold trophy at the Disney Lorcana Challenge in Indianapolis",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/indianapolis/header.jpg"
     }
   ]
 }
