@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-21T19:48:16Z",
+  "generated": "2026-09-23T18:48:56Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -45,18 +45,18 @@
         "promo": 0
       },
       "revealedCount": 0,
-      "blurb": "Welcome to a town where metro meets fantasy! Here you can join the likes of heroes, princesses, and a magical wizard or two. Music and art bring these animated streets to life, but something nefarious is happening in the back alleys and waterways. Have a great visit, but keep an eye out for any funny business.",
+      "blurb": "Take this bridge and you’ll end up in a place brimming with light and music. Cards inspired by the film _Coco_ reward you for remembering past glimmers. In this card’s case, if you have 10 or more cards that “passed on” into your discard pile, this location will give you a few extra lore.",
       "productUrl": "https://www.disneylorcana.com/en-US/product/hyperia-city",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/f9f2ym9x_1920x1080.jpg",
+      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
       "prereleaseLabel": "October 16, 2026",
       "releaseLabel": "October 23, 2026",
       "gallery": [
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/f9f2ym9x_1920x1080.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/f9f2ym9x_1x1.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/pmemfhzh_1x1.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/en/whtzuxaqg5_en.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/en/first-look/en_lz5fcutdbh.png.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/en/first-look/en_80nbmd70bz.png.png"
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1x1.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1080x1920.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_u468hffab6.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png"
       ]
     },
     {
@@ -105,20 +105,36 @@
   "reveals": [],
   "news": [
     {
+      "title": "Disney Lorcana Trading Card Game Heads to Hyperia City",
+      "date": "September 22, 2026",
+      "category": "News",
+      "summary": "Musical Glimmers Enter the Metropolis alongside Favorites from Disney and Pixar’s Coco",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-lywzamq4hq_1920x1080-1.jpg"
+    },
+    {
+      "title": "Six Top Decks for Post-Rotation Core Constructed",
+      "date": "September 21, 2026",
+      "category": "News",
+      "summary": "Rotation has arrived for the second time in the history of the Disney Lorcana Trading Card Game.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-8qy2ytz6ct_1920x1080.jpg"
+    },
+    {
+      "title": "Europe Championship Recap",
+      "date": "September 17, 2026",
+      "category": "News",
+      "summary": "Poland's Wojciech Złomek takes the golden trophy",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-jpffiyd4bi_1920x1080.jpg"
+    },
+    {
       "title": "North America Championship Recap",
       "date": "September 3, 2026",
       "category": "News",
       "summary": "Dillon LeDuc takes the trophy with his Amber/Amethyst Deck",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/na-champs/w-ppccjvbvth_1920x1080.jpg"
-    },
-    {
-      "title": "Disney Lorcana TCG Announces Digital Game at D23",
-      "date": "August 15, 2026",
-      "category": "News",
-      "summary": "Ravensburger Announces Set Releases, Collector Boosters, and Disney Park Events",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/xrszzevabf_1920x1080_v2.jpg"
     },
     {
       "title": "Attack of the Vine! Survey",
@@ -129,20 +145,12 @@
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/attack-of-the-vine-press-release/d6quksm9_1920x1080.jpg"
     },
     {
-      "title": "New Collection Quests in Paris and Hong Kong",
-      "date": "July 29, 2026",
+      "title": "Disney Lorcana TCG Announces Digital Game at D23",
+      "date": "August 15, 2026",
       "category": "News",
-      "summary": "Ravensburger is excited to announce two new events happening at Disney Parks this year where fans can participate in a Collection Quest, Scavenger Hunt, and more to acquire promotional cards, while supplies last.",
+      "summary": "Ravensburger Announces Set Releases, Collector Boosters, and Disney Park Events",
       "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/cq-hk--paris/93kedmfr8b_v3_1920x1080.jpg"
-    },
-    {
-      "title": "Europe Championship Recap",
-      "date": "September 17, 2026",
-      "category": "Events",
-      "summary": "Poland's Wojciech Złomek takes the golden trophy",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-jpffiyd4bi_1920x1080.jpg"
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/xrszzevabf_1920x1080_v2.jpg"
     },
     {
       "title": "New Multiplayer Format Open Beta",
@@ -183,6 +191,14 @@
       "summary": "Attack of the Vine! is here and ready to invade your decks and your collections!",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/w-7koojgwseg_1920x1080.jpg"
+    },
+    {
+      "title": "New Collection Quests in Paris and Hong Kong",
+      "date": "July 29, 2026",
+      "category": "Events",
+      "summary": "Ravensburger is excited to announce two new events happening at Disney Parks this year where fans can participate in a Collection Quest, Scavenger Hunt, and more to acquire promotional cards, while supplies last.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/cq-hk--paris/93kedmfr8b_v3_1920x1080.jpg"
     },
     {
       "title": "Power Panda Pop!",
@@ -231,22 +247,6 @@
       "summary": "Welcome to the Disney Lorcana TCG set release notes for Attack of the Vine!",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/w-d9dbqegmw4_1920x1080.jpg"
-    },
-    {
-      "title": "Attack of the Vine! Creative Spotlight",
-      "date": "July 2, 2026",
-      "category": "News",
-      "summary": "Iconic and Enchanted cards are two of the rarest types of cards in Disney Lorcana TCG.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/w-faljmerdtf_1920x1080.jpg"
-    },
-    {
-      "title": "An Ever-Shifting Game",
-      "date": "June 30, 2026",
-      "category": "Gameplay",
-      "summary": "Discover new Shift variants in Attack of the Vine! that are sure to change up your next quest.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/variant-shift/w-gd89m6ydyi_1920x1080.jpg"
     }
   ]
 }
