@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T18:53:02Z",
+  "generated": "2026-09-28T20:55:44Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -48,14 +48,16 @@
       "revealedCount": 73,
       "blurb": "Take this bridge and you’ll end up in a place brimming with light and music. Cards inspired by the film _Coco_ reward you for remembering past glimmers. In this card’s case, if you have 10 or more cards that “passed on” into your discard pile, this location will give you a few extra lore.",
       "productUrl": "https://www.disneylorcana.com/en-US/product/hyperia-city",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
+      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
+      "prereleaseLabel": "October 16, 2026",
+      "releaseLabel": "October 23, 2026",
       "gallery": [
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1x1.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1080x1920.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_u468hffab6.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_6s4w2snbfe.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/v3fhsmqxmp_teaser-double_en.png"
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png"
       ]
     },
     {
