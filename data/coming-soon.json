@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-28T20:55:44Z",
+  "generated": "2026-09-30T19:46:55Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -40,24 +40,22 @@
       "type": "expansion",
       "number": 14,
       "cardCounts": {
-        "base": 70,
+        "base": 109,
         "nonBase": 2,
         "promo": 1,
-        "total": 73
+        "total": 112
       },
-      "revealedCount": 73,
-      "blurb": "Take this bridge and you’ll end up in a place brimming with light and music. Cards inspired by the film _Coco_ reward you for remembering past glimmers. In this card’s case, if you have 10 or more cards that “passed on” into your discard pile, this location will give you a few extra lore.",
+      "revealedCount": 112,
+      "blurb": "This set also marks the debut of ink drops. These are special pieces of temporary ink you add to your inkwell to help you deploy cards and glimmers into play much quicker. In addition, having an ink drop in play may give you the ability to draw additional cards, power up your stats, or upgrade actions. Click below to discover how you can use this new power source.",
       "productUrl": "https://www.disneylorcana.com/en-US/product/hyperia-city",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
-      "prereleaseLabel": "October 16, 2026",
-      "releaseLabel": "October 23, 2026",
+      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
       "gallery": [
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1x1.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1080x1920.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_u468hffab6.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png"
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_6s4w2snbfe.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/v3fhsmqxmp_teaser-double_en.png"
       ]
     },
     {
@@ -105,6 +103,51 @@
   ],
   "reveals": [
     {
+      "id": 3266,
+      "fullName": "Fru Fru - VIP Guest",
+      "name": "Fru Fru",
+      "version": "VIP Guest",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Zootopia",
+      "type": "Character",
+      "color": "Amber",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/1_81f9b02f572e1b1744d13fa5a4dbd0f891bbc1e3.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/1_fd02302f0f848b1ddc25fd1f290d14866f3eb723.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3270,
+      "fullName": "Pete - Suave Showoff",
+      "name": "Pete",
+      "version": "Suave Showoff",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "A Goofy Movie",
+      "type": "Character",
+      "color": "Amber",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/5_f1af63ae049bf64fef7dc0822ee135c03d2a4e79.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/5_ea3092330fb7cb2596f9122cb2849522cc6371ec.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3271,
+      "fullName": "Miriam Mendelsohn - Front-Row Fan",
+      "name": "Miriam Mendelsohn",
+      "version": "Front-Row Fan",
+      "rarity": "Uncommon",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Turning Red",
+      "type": "Character",
+      "color": "Amber",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/6_9d0c659dad4bffd0c2c2a866de0c03c11651572c.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/6_27cef22cf7c01ca1da8813ba7779c660ba1006f0.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3272,
       "fullName": "Priya Mangal - Immovable Fan",
       "name": "Priya Mangal",
@@ -117,6 +160,36 @@
       "color": "Amber",
       "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/7_ad5cce8aee61893e4efcb3dea32b67a941de3bee.jpg",
       "full": "https://api.lorcana.ravensburger.com/images/en/set14/7_d0005eb63a6ba2808ec822a1b6160006b4d5695b.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3273,
+      "fullName": "Yax - Concert Goer",
+      "name": "Yax",
+      "version": "Concert Goer",
+      "rarity": "Uncommon",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Zootopia",
+      "type": "Character",
+      "color": "Amber",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/8_65e152b7b8d37e9d028ec917345885ce1c0a0356.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/8_20d335375172cf6f851a59d8e0c4a0de94a65a58.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3274,
+      "fullName": "Judy Hopps - Helpful Officer",
+      "name": "Judy Hopps",
+      "version": "Helpful Officer",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Zootopia",
+      "type": "Character",
+      "color": "Amber",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/9_a06eb95b99acead55fdf485cdda909ce83bc33df.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/9_32b40229cfd1d9e6944a507b771824a1c8f596e7.jpg",
       "isExternalReveal": false
     },
     {
@@ -210,6 +283,21 @@
       "isExternalReveal": false
     },
     {
+      "id": 3289,
+      "fullName": "Judy Hopps - Always Vigilant",
+      "name": "Judy Hopps",
+      "version": "Always Vigilant",
+      "rarity": "Rare",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Zootopia",
+      "type": "Character",
+      "color": "Amber",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/24_dc51ef841ae345256d5b9601edd738be3431a49d.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/24_c36cf79737406eee3bb1551543aebff7714632de.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3290,
       "fullName": "Nick Wilde - Providing Backup",
       "name": "Nick Wilde",
@@ -237,6 +325,36 @@
       "color": "Amber",
       "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/29_b723088e46f3560321cec3da401dd9c6f7a1fe5c.jpg",
       "full": "https://api.lorcana.ravensburger.com/images/en/set14/29_2dec71ec33b6f4127db60d2a7bb9cd57cad50000.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3295,
+      "fullName": "Never Gonna Let You Cry",
+      "name": "Never Gonna Let You Cry",
+      "version": "",
+      "rarity": "Uncommon",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Turning Red",
+      "type": "Action",
+      "color": "Amber",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/30_860528c7ce1fe7577a90b0738eabd9d8534c3d36.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/30_f9d324add89d30d245f1db75d0f457b7ddd58b45.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3297,
+      "fullName": "Speaker Stack",
+      "name": "Speaker Stack",
+      "version": "",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "A Goofy Movie",
+      "type": "Item",
+      "color": "Amber",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/32_8ea761761a4dc83123a2913d43a30ff9faa40060.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/32_ad1d0bbba1380c233406612b41f458aaf584f4bf.jpg",
       "isExternalReveal": false
     },
     {
@@ -345,6 +463,36 @@
       "isExternalReveal": false
     },
     {
+      "id": 3310,
+      "fullName": "Tinker Bell - Curious Fairy",
+      "name": "Tinker Bell",
+      "version": "Curious Fairy",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Peter Pan",
+      "type": "Character",
+      "color": "Amethyst",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/45_711e492b412a097aec3115dd5529a7134c1f81d5.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/45_ad3ea6699f962b358b96de7e1c22ae047699ffac.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3311,
+      "fullName": "Madam Mim - Bauble Chaser",
+      "name": "Madam Mim",
+      "version": "Bauble Chaser",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "The Sword in the Stone",
+      "type": "Character",
+      "color": "Amethyst",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/46_2f6928cf0002c028d613e6d922a475f34c00d454.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/46_021e53a47f8592145666271df715d47ff4f43383.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3314,
       "fullName": "Fox Xanatos - Charismatic Outlaw",
       "name": "Fox Xanatos",
@@ -387,6 +535,21 @@
       "color": "Amethyst",
       "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/52_154640207e0e2d161c3d98c752504c013ab28d3b.jpg",
       "full": "https://api.lorcana.ravensburger.com/images/en/set14/52_da254e826079b3072f936f506d020d008f2bdb60.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3318,
+      "fullName": "Goliath - Transformed Warrior",
+      "name": "Goliath",
+      "version": "Transformed Warrior",
+      "rarity": "Rare",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Gargoyles",
+      "type": "Character",
+      "color": "Amethyst",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/53_c0c2cac4a299a2f64e6ba4ddeefb24b4f0349020.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/53_4730cafb6245d2864e8fd393fa560f709578dee5.jpg",
       "isExternalReveal": false
     },
     {
@@ -480,6 +643,51 @@
       "isExternalReveal": false
     },
     {
+      "id": 3334,
+      "fullName": "Trusty - Along for the Ride",
+      "name": "Trusty",
+      "version": "Along for the Ride",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Lady and the Tramp",
+      "type": "Character",
+      "color": "Emerald",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/69_2802481dcbb09595ecfbd6a7d64741f50bf9c914.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/69_494b212ae6f7224570931b3fa7f515d54f6c2c8d.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3336,
+      "fullName": "Hiro Hamada - Versatile Inventor",
+      "name": "Hiro Hamada",
+      "version": "Versatile Inventor",
+      "rarity": "Uncommon",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Big Hero 6",
+      "type": "Character",
+      "color": "Emerald",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/71_1da20a0eb51ba0b31a5fc62aa586a6651bfbac7c.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/71_fd336c5a6a818d99395c3db30b7bbd4cd9f75e59.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3337,
+      "fullName": "Go Go Tomago - Extreme Tester",
+      "name": "Go Go Tomago",
+      "version": "Extreme Tester",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Big Hero 6",
+      "type": "Character",
+      "color": "Emerald",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/72_939545d5a2da5155bcc9b6796c5ed5f6578b0c5a.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/72_fc3912e50942ad14c53c9184efb8c1b87d5d76b5.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3338,
       "fullName": "Molly Cunningham - Remembers to Share",
       "name": "Molly Cunningham",
@@ -492,6 +700,21 @@
       "color": "Emerald",
       "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/73_6028d4fcb56e9c81c19f52ff0a92642f0f780fef.jpg",
       "full": "https://api.lorcana.ravensburger.com/images/en/set14/73_dc123ee5b80eca8160990db93c3eb360ed749a7a.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3339,
+      "fullName": "Kit Cloudkicker - Irrepressible Bear",
+      "name": "Kit Cloudkicker",
+      "version": "Irrepressible Bear",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "TaleSpin",
+      "type": "Character",
+      "color": "Emerald",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/74_cdd0e951b063c122ffeb3b9c98116cec09cf4f98.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/74_de7146f88a2dcc9080cd1fba2823e6c9a7bd89bc.jpg",
       "isExternalReveal": false
     },
     {
@@ -525,6 +748,21 @@
       "isExternalReveal": false
     },
     {
+      "id": 3345,
+      "fullName": "Rebecca Cunningham - Savvy Manager",
+      "name": "Rebecca Cunningham",
+      "version": "Savvy Manager",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "TaleSpin",
+      "type": "Character",
+      "color": "Emerald",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/80_02a6232bffd0e78e89682df89e4490678a58c06d.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/80_0ed92aaa42a1707e44266259e1aceb51688c4eb9.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3346,
       "fullName": "Shere Khan - Opportunistic Tycoon",
       "name": "Shere Khan",
@@ -540,6 +778,21 @@
       "isExternalReveal": false
     },
     {
+      "id": 3347,
+      "fullName": "Horace - Clumsy Clod",
+      "name": "Horace",
+      "version": "Clumsy Clod",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "101 Dalmatians",
+      "type": "Character",
+      "color": "Emerald",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/82_dc4daaa87ec42c7402442837704e56d8080169bf.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/82_e6d50357b3c90e12e6b5860e33e60f6ede447f75.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3350,
       "fullName": "Baymax - Lab Assistant",
       "name": "Baymax",
@@ -552,6 +805,21 @@
       "color": "Emerald",
       "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/85_57053e36420b1e7184cd3e5e12985944528f0e8e.jpg",
       "full": "https://api.lorcana.ravensburger.com/images/en/set14/85_858db452a2c0aaff3e51bed20a9c5ffe82fdf7ff.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3351,
+      "fullName": "Fred - Awesome Boss",
+      "name": "Fred",
+      "version": "Awesome Boss",
+      "rarity": "Rare",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Big Hero 6",
+      "type": "Character",
+      "color": "Emerald",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/86_fb706a70b7588d3fc76c33a607c7580f2025a016.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/86_ddd9ed6958192153eb8f4fc33975bb99291bbfca.jpg",
       "isExternalReveal": false
     },
     {
@@ -630,6 +898,21 @@
       "isExternalReveal": false
     },
     {
+      "id": 3361,
+      "fullName": "Another Tale to Spin",
+      "name": "Another Tale to Spin",
+      "version": "",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "TaleSpin",
+      "type": "Action",
+      "color": "Emerald",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/96_c59d7de5675ddf5d11c3e08f20242523b6cc76a3.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/96_26fd9c6e800b0e1e2a132dc6fcb745c92e8da368.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3362,
       "fullName": "This Is Business",
       "name": "This Is Business",
@@ -642,6 +925,21 @@
       "color": "Emerald",
       "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/97_d600d7417d924043fdfee0f81241a1b4d4b092c2.jpg",
       "full": "https://api.lorcana.ravensburger.com/images/en/set14/97_3a2f2ea61e790e85e1632257435f902c2361b3c9.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3363,
+      "fullName": "Flippant Taunt",
+      "name": "Flippant Taunt",
+      "version": "",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "TaleSpin",
+      "type": "Action",
+      "color": "Emerald",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/98_f2427cb399457986509cd33fa7eef7760bf17091.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/98_6e5f2de9e28768f59e40c7f9a1b2be6141cb4f74.jpg",
       "isExternalReveal": false
     },
     {
@@ -720,6 +1018,21 @@
       "isExternalReveal": false
     },
     {
+      "id": 3376,
+      "fullName": "Goofy - Enthusiastic Tourist",
+      "name": "Goofy",
+      "version": "Enthusiastic Tourist",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "A Goofy Movie",
+      "type": "Character",
+      "color": "Ruby",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/111_8f083a282d4cf12a38e684f8bde98e477bd65342.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/111_607b3eecc7ba0845457eae5dc87598cead67932b.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3378,
       "fullName": "Cruella De Vil - Dodging Traffic",
       "name": "Cruella De Vil",
@@ -795,6 +1108,21 @@
       "isExternalReveal": false
     },
     {
+      "id": 3389,
+      "fullName": "Roxanne - Concert Lover",
+      "name": "Roxanne",
+      "version": "Concert Lover",
+      "rarity": "Rare",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "A Goofy Movie",
+      "type": "Character",
+      "color": "Ruby",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/124_8fc973be963ce386feeae24ee43f78da5029b0a6.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/124_5ba0bfdf860a241e136aa33112d9eb6d9197d048.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3390,
       "fullName": "Wasabi - Called into Battle",
       "name": "Wasabi",
@@ -807,6 +1135,51 @@
       "color": "Ruby",
       "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/125_60e59cebd499536d517354b7dda5152a34b676d2.jpg",
       "full": "https://api.lorcana.ravensburger.com/images/en/set14/125_f40cbd04b6994eeb707f9aff54bdd7a22e23717c.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3391,
+      "fullName": "Lady Tremaine - Scornful Snob",
+      "name": "Lady Tremaine",
+      "version": "Scornful Snob",
+      "rarity": "Super Rare",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Cinderella",
+      "type": "Character",
+      "color": "Ruby",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/126_dc2a40d2d2f77389faca35bf85f6f12f18ae9392.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/126_45d89c40a13d3ee0168a17c1266250d00caad07d.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3393,
+      "fullName": "Intimidation Tactics",
+      "name": "Intimidation Tactics",
+      "version": "",
+      "rarity": "Uncommon",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Gargoyles",
+      "type": "Action",
+      "color": "Ruby",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/128_808893881857fe19b058eb1b3a4303b99e0edc0f.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/128_018bd76fced96971ea46e85a9eed52eff213efd1.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3394,
+      "fullName": "Pushing Boundaries",
+      "name": "Pushing Boundaries",
+      "version": "",
+      "rarity": "Uncommon",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Big Hero 6",
+      "type": "Action",
+      "color": "Ruby",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/129_da82253665576531ed1f094867a8a84996a1ef5e.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/129_de7505a30f960c0d50216c7a0654de1d1503707d.jpg",
       "isExternalReveal": false
     },
     {
@@ -855,6 +1228,36 @@
       "isExternalReveal": false
     },
     {
+      "id": 3405,
+      "fullName": "Baymax - Qualified Physician",
+      "name": "Baymax",
+      "version": "Qualified Physician",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Big Hero 6",
+      "type": "Character",
+      "color": "Sapphire",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/140_a961971ff8dac96374ad402bcb20c1e66c539ddc.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/140_c6b04ca44000ca2a507e7643c47b8b9de63a85f3.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3408,
+      "fullName": "Abigail & Amelia - Gossiping Geese",
+      "name": "Abigail & Amelia",
+      "version": "Gossiping Geese",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "The Aristocats",
+      "type": "Character",
+      "color": "Sapphire",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/143_1205b55f362c68ccaa5a55ab28d0f1ba11a128f2.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/143_ba5833277cce961447a5369574064d041ef9c395.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3411,
       "fullName": "Madam Mim - Nosy Neighbor",
       "name": "Madam Mim",
@@ -882,6 +1285,36 @@
       "color": "Sapphire",
       "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/147_c862433de61e69f5de1dc89923ebf27ae8dffdb8.jpg",
       "full": "https://api.lorcana.ravensburger.com/images/en/set14/147_eb6156324f4c04be4f3c95412db3024740d1cfad.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3415,
+      "fullName": "Hiro Hamada - Pioneering Inventor",
+      "name": "Hiro Hamada",
+      "version": "Pioneering Inventor",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Big Hero 6",
+      "type": "Character",
+      "color": "Sapphire",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/150_206331b1c3021ad398212450b40b1aa643665da6.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/150_92e268bb22f5ce632c80ae5c9fe7735281bc5dbc.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3416,
+      "fullName": "Honey Lemon - Endlessly Curious",
+      "name": "Honey Lemon",
+      "version": "Endlessly Curious",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Big Hero 6",
+      "type": "Character",
+      "color": "Sapphire",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/151_2d8f1be51e105bddbc83dc44a1557c0d7e29995a.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/151_278a68b80e8dea0813a83310af11cd35fad231aa.jpg",
       "isExternalReveal": false
     },
     {
@@ -975,6 +1408,21 @@
       "isExternalReveal": false
     },
     {
+      "id": 3427,
+      "fullName": "A Dark Age No More",
+      "name": "A Dark Age No More",
+      "version": "",
+      "rarity": "Rare",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "The Sword in the Stone",
+      "type": "Action",
+      "color": "Sapphire",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/162_2065449601c3c6d67a8f68a638456678efbfdf36.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/162_0dc6f1e2afd00744dd41fe2cb2ac3f0fba88ea43.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3429,
       "fullName": "Intense Research",
       "name": "Intense Research",
@@ -1005,6 +1453,21 @@
       "isExternalReveal": false
     },
     {
+      "id": 3433,
+      "fullName": "Spyglass Hat",
+      "name": "Spyglass Hat",
+      "version": "",
+      "rarity": "Rare",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "The Little Mermaid",
+      "type": "Item",
+      "color": "Sapphire",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/168_a63338f9e5866ef977320eea0ac6381b1c022b71.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/168_830fb67166ab1c212d79d46d5a88778fd9aac337.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3434,
       "fullName": "Upgraded Chem Purse",
       "name": "Upgraded Chem Purse",
@@ -1020,6 +1483,51 @@
       "isExternalReveal": false
     },
     {
+      "id": 3440,
+      "fullName": "Tick-Tock - Canal Croc",
+      "name": "Tick-Tock",
+      "version": "Canal Croc",
+      "rarity": "Uncommon",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Peter Pan",
+      "type": "Character",
+      "color": "Steel",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/175_0c807463942f68fec129f386fb9e1ff30cf4ea62.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/175_f73be1d9c2622eec864c07495ef676c4a67e1402.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3443,
+      "fullName": "Woolter & Jesse - Bellwether's Henchmen",
+      "name": "Woolter & Jesse",
+      "version": "Bellwether's Henchmen",
+      "rarity": "Uncommon",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Zootopia",
+      "type": "Character",
+      "color": "Steel",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/178_a2b162c5d710c95f035e76ecf5f23b09b77cdb78.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/178_f31883162a86d2e673bd699c0d923bf9cfc88c4a.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3444,
+      "fullName": "Napoleon - Patient Watchdog",
+      "name": "Napoleon",
+      "version": "Patient Watchdog",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "The Aristocats",
+      "type": "Character",
+      "color": "Steel",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/179_6d9329d370742436ced38dd3a3198f07db67542d.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/179_b1d6d77047800c4db49cfb6724d69616fb488e52.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3447,
       "fullName": "Toulouse - Rough and Tumble",
       "name": "Toulouse",
@@ -1032,6 +1540,21 @@
       "color": "Steel",
       "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/182_a6a56e91815389f09628cfe21125dd21b6e787b7.jpg",
       "full": "https://api.lorcana.ravensburger.com/images/en/set14/182_691dd86ce675f9200744f1e8c8c78dff18c04031.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3449,
+      "fullName": "Sir Pellinore - Tougher Than He Looks",
+      "name": "Sir Pellinore",
+      "version": "Tougher Than He Looks",
+      "rarity": "Uncommon",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "The Sword in the Stone",
+      "type": "Character",
+      "color": "Steel",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/184_e1713dd7f7f0b04fa1f1d48af3571d25d34bfe8f.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/184_abaa13fe49929d96b5b8b8386775ff52b6e98374.jpg",
       "isExternalReveal": false
     },
     {
@@ -1080,6 +1603,21 @@
       "isExternalReveal": false
     },
     {
+      "id": 3454,
+      "fullName": "Koslov - Imposing Enforcer",
+      "name": "Koslov",
+      "version": "Imposing Enforcer",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "Zootopia",
+      "type": "Character",
+      "color": "Steel",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/189_7694c75d557d7762896233d4ce090c0b1e549f30.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/189_d8318c392a7ce15366a60a1577f8dca02e18ec45.jpg",
+      "isExternalReveal": false
+    },
+    {
       "id": 3456,
       "fullName": "Baloo - Freight Pilot",
       "name": "Baloo",
@@ -1092,6 +1630,36 @@
       "color": "Steel",
       "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/191_76fefdaebc0649494c2f622e4c36fa7407cf3565.jpg",
       "full": "https://api.lorcana.ravensburger.com/images/en/set14/191_61d85cf83a405e7d19e590b83ab3fe86777e312c.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3457,
+      "fullName": "Kit Cloudkicker - Sure Shot",
+      "name": "Kit Cloudkicker",
+      "version": "Sure Shot",
+      "rarity": "Super Rare",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "TaleSpin",
+      "type": "Character",
+      "color": "Steel",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/192_dd8e645fef94d8d5254b6866ca928529c6f0ab98.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/192_ca865ebe7e6c249dcbc601689fd0db972659114f.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3458,
+      "fullName": "Arthur - Jousting Knight",
+      "name": "Arthur",
+      "version": "Jousting Knight",
+      "rarity": "Super Rare",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "The Sword in the Stone",
+      "type": "Character",
+      "color": "Steel",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/193_8039d92fda9c30ec5ccf3f1b0f5150eaf26204db.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/193_57377cef390426ddfd98c050914ac14c538e2138.jpg",
       "isExternalReveal": false
     },
     {
@@ -1137,6 +1705,21 @@
       "color": "Steel",
       "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/197_13b231e19129d48b70841852394b1328e8748767.jpg",
       "full": "https://api.lorcana.ravensburger.com/images/en/set14/197_928043df6a5864a44ec5b34bcc2348c45555f590.jpg",
+      "isExternalReveal": false
+    },
+    {
+      "id": 3464,
+      "fullName": "Khan Transport Delivery",
+      "name": "Khan Transport Delivery",
+      "version": "",
+      "rarity": "Common",
+      "setCode": "14",
+      "setName": "Hyperia City",
+      "story": "TaleSpin",
+      "type": "Action",
+      "color": "Steel",
+      "thumb": "https://api.lorcana.ravensburger.com/images/en/set14/199_37dbf65326651edb3e408ef5b142637f6bfe34b5.jpg",
+      "full": "https://api.lorcana.ravensburger.com/images/en/set14/199_9073de001a035315bcdc373a65f29d1e1951d921.jpg",
       "isExternalReveal": false
     },
     {
@@ -1202,6 +1785,14 @@
   ],
   "news": [
     {
+      "title": "Ink Drop Deep Dive",
+      "date": "September 29, 2026",
+      "category": "News",
+      "summary": "Ink drops are a new type of temporary ink that you can gather as you play.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-lmryfw5gc4_1920x1080.jpg"
+    },
+    {
       "title": "Get Ready for Some City Living",
       "date": "September 24, 2026",
       "category": "News",
@@ -1228,7 +1819,7 @@
     {
       "title": "Europe Championship Recap",
       "date": "September 17, 2026",
-      "category": "News",
+      "category": "Events",
       "summary": "Poland's Wojciech Złomek takes the golden trophy",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-jpffiyd4bi_1920x1080.jpg"
@@ -1236,7 +1827,7 @@
     {
       "title": "North America Championship Recap",
       "date": "September 3, 2026",
-      "category": "News",
+      "category": "Events",
       "summary": "Dillon LeDuc takes the trophy with his Amber/Amethyst Deck",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/na-champs/w-ppccjvbvth_1920x1080.jpg"
@@ -1336,14 +1927,6 @@
       "summary": "D23: The Ultimate Disney Fan Event (TUDFE) is a three-day celebration of all things Disney, and Ravensburger",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/xrszzevabf_1920x1080_v2.jpg"
-    },
-    {
-      "title": "Another Prerelease is Nearly Here",
-      "date": "July 14, 2026",
-      "category": "News",
-      "summary": "Prerelease events allow you to experience the newest set before it is released at mass retailers.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/w-4jj7ljjhxb_1920x1080.jpg"
     }
   ]
 }
