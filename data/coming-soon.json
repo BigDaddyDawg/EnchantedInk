@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-30T19:46:55Z",
+  "generated": "2026-10-04T18:31:35Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -48,14 +48,16 @@
       "revealedCount": 112,
       "blurb": "This set also marks the debut of ink drops. These are special pieces of temporary ink you add to your inkwell to help you deploy cards and glimmers into play much quicker. In addition, having an ink drop in play may give you the ability to draw additional cards, power up your stats, or upgrade actions. Click below to discover how you can use this new power source.",
       "productUrl": "https://www.disneylorcana.com/en-US/product/hyperia-city",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
+      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
+      "prereleaseLabel": "October 16, 2026",
+      "releaseLabel": "October 23, 2026",
       "gallery": [
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1x1.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1080x1920.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_u468hffab6.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_6s4w2snbfe.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/v3fhsmqxmp_teaser-double_en.png"
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png"
       ]
     },
     {
@@ -1809,6 +1811,14 @@
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-lywzamq4hq_1920x1080-1.jpg"
     },
     {
+      "title": "Creative Spotlight – Hyperia City",
+      "date": "October 1, 2026",
+      "category": "News",
+      "summary": "Hyperia City is a bustling city with fantastical, whimsical districts and a sparkling nightlife.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/creative-spotlight/w-l3dh2wxlcd_1920x1080.jpg"
+    },
+    {
       "title": "Six Top Decks for Post-Rotation Core Constructed",
       "date": "September 21, 2026",
       "category": "News",
@@ -1919,14 +1929,6 @@
       "summary": "Ravensburger is bringing Disney Lorcana Trading Card Game Collection Quest events to a store near you!",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/04/w-ntevaanrwj_1920x1080-1.jpg"
-    },
-    {
-      "title": "D23: The Ultimate Disney Fan Event Showcases Disney Lorcana Trading Card Game",
-      "date": "July 14, 2026",
-      "category": "Events",
-      "summary": "D23: The Ultimate Disney Fan Event (TUDFE) is a three-day celebration of all things Disney, and Ravensburger",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/xrszzevabf_1920x1080_v2.jpg"
     }
   ]
 }
