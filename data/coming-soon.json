@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T22:18:36Z",
+  "generated": "2026-10-14T19:09:04Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -49,16 +49,14 @@
       "revealedCount": 257,
       "blurb": "As you might expect, you can’t introduce Disney and Pixar’s _Coco_ into a new set without including the film’s many memorable songs. Found across Amber, Amethyst, and Ruby inks, these glimmers not only honor the ancestors, but let you relive the best moments from Miguel and Héctor Rivera’s adventure.",
       "productUrl": "https://www.disneylorcana.com/en-US/product/hyperia-city",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
-      "prereleaseLabel": "October 16, 2026",
-      "releaseLabel": "October 23, 2026",
+      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
       "gallery": [
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1x1.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1080x1920.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7nflsj6nut_enchanted_1920x1080.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7nflsj6nut_enchanted_1080x1920.jpg"
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7nflsj6nut_enchanted_1080x1920.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_u468hffab6.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png"
       ]
     },
     {
