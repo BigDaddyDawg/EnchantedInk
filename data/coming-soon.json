@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-14T19:09:04Z",
+  "generated": "2026-10-18T17:47:17Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -49,14 +49,16 @@
       "revealedCount": 257,
       "blurb": "As you might expect, you can’t introduce Disney and Pixar’s _Coco_ into a new set without including the film’s many memorable songs. Found across Amber, Amethyst, and Ruby inks, these glimmers not only honor the ancestors, but let you relive the best moments from Miguel and Héctor Rivera’s adventure.",
       "productUrl": "https://www.disneylorcana.com/en-US/product/hyperia-city",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
+      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
+      "prereleaseLabel": "October 16, 2026",
+      "releaseLabel": "October 23, 2026",
       "gallery": [
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1x1.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1080x1920.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7nflsj6nut_enchanted_1920x1080.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7nflsj6nut_enchanted_1080x1920.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_u468hffab6.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png"
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7nflsj6nut_enchanted_1080x1920.jpg"
       ]
     },
     {
@@ -4555,6 +4557,22 @@
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-lmryfw5gc4_1920x1080.jpg"
     },
     {
+      "title": "A Coco Themed Deck",
+      "date": "October 15, 2026",
+      "category": "News",
+      "summary": "to Disney Lorcana Trading Card Game, Disney and Pixar’s Coco!",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/w-iay9pqtvmo_1920x1080-1.jpg"
+    },
+    {
+      "title": "TIMELESS TALES AND TOTALLY-ROCKIN’ TUNES",
+      "date": "October 15, 2026",
+      "category": "News",
+      "summary": "Arriving in just a few days, the stunning Curator’s Collection: Beauty and the Beast Edition and the amazing I2I Foil Playmat will bring more fantastical fun to your next quest.",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/10/w-o9odc377nv_1920x1080-1.jpg"
+    },
+    {
       "title": "Creative Spotlight – Hyperia City",
       "date": "October 1, 2026",
       "category": "News",
@@ -4657,22 +4675,6 @@
       "summary": "Attack of the Vine! is here and ready to invade your decks and your collections!",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/w-7koojgwseg_1920x1080.jpg"
-    },
-    {
-      "title": "New Collection Quests in Paris and Hong Kong",
-      "date": "July 29, 2026",
-      "category": "Events",
-      "summary": "Ravensburger is excited to announce two new events happening at Disney Parks this year where fans can participate in a Collection Quest, Scavenger Hunt, and more to acquire promotional cards, while supplies last.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/cq-hk--paris/93kedmfr8b_v3_1920x1080.jpg"
-    },
-    {
-      "title": "Power Panda Pop!",
-      "date": "July 23, 2026",
-      "category": "News",
-      "summary": "Attack of the Vine! welcomes Turning Red, one of my favorite Pixar films, into the realm of Disney Lorcana.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/atv-turning-red-deck/s13-atv_sustain_turning-red-deck_assetsvje5welvdv_1920x1080.jpg"
     }
   ]
 }
