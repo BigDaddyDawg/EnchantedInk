@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18T17:47:17Z",
+  "generated": "2026-10-19T20:16:50Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -49,16 +49,14 @@
       "revealedCount": 257,
       "blurb": "As you might expect, you can’t introduce Disney and Pixar’s _Coco_ into a new set without including the film’s many memorable songs. Found across Amber, Amethyst, and Ruby inks, these glimmers not only honor the ancestors, but let you relive the best moments from Miguel and Héctor Rivera’s adventure.",
       "productUrl": "https://www.disneylorcana.com/en-US/product/hyperia-city",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
-      "prereleaseLabel": "October 16, 2026",
-      "releaseLabel": "October 23, 2026",
+      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
       "gallery": [
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1920x1080.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/hero-and-background-new/s14_header_still_1x1.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1920x1080.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7cuzfkzkuf_map_1080x1920.jpg",
         "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7nflsj6nut_enchanted_1920x1080.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7nflsj6nut_enchanted_1080x1920.jpg"
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/7nflsj6nut_enchanted_1080x1920.jpg",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_u468hffab6.png",
+        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/products/en_y5vavzwl9s-1.png"
       ]
     },
     {
@@ -4557,6 +4555,14 @@
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-lmryfw5gc4_1920x1080.jpg"
     },
     {
+      "title": "Disney Lorcana TCG Products from D23: The Ultimate Disney Fan Event Now Available Online",
+      "date": "October 19, 2026",
+      "category": "News",
+      "summary": "Starting on Saturday, October 31, 2026 at 9am ET and ending on Sunday, November 1, 2026 at 9 p.m. ET",
+      "url": "https://www.disneylorcana.com/en-US/news/",
+      "image": "https://ravensburger.cloud/cms/gallery/bgddhwkvxy_1920x1080.jpg"
+    },
+    {
       "title": "A Coco Themed Deck",
       "date": "October 15, 2026",
       "category": "News",
@@ -4667,14 +4673,6 @@
       "summary": "Mike Wazowski, Sulley, and more monsters have joined the Disney Lorcana Trading Card Game in Attack of the Vine!",
       "url": "https://www.disneylorcana.com/en-US/news/",
       "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/atv-monsters-inc-deck/w-72j7extbf5_1920x1080.jpg"
-    },
-    {
-      "title": "What’s New in Attack of the Vine!",
-      "date": "July 30, 2026",
-      "category": "News",
-      "summary": "Attack of the Vine! is here and ready to invade your decks and your collections!",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/w-7koojgwseg_1920x1080.jpg"
     }
   ]
 }
