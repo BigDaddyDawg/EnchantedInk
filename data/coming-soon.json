@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25T18:04:33Z",
+  "generated": "2026-10-26T20:12:53Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -20,17 +20,8 @@
         "total": 38
       },
       "revealedCount": 38,
-      "blurb": "This magical willy, nilly, silly old bear glimmer knows that an adventure is always better when taken together. Add a few other Hunny characters to your team and he gives them the sweet treat of extra lore.",
-      "productUrl": "https://www.disneylorcana.com/en-US/product/great-hunny-rescue",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/backrounds/ndvlmcqdex_1920x1080.jpg",
-      "gallery": [
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/backrounds/ndvlmcqdex_1920x1080.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/backrounds/ndvlmcqdex_1080x1350_updated.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/glimmers/zncpy9gvly_400x500.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/cards/en-final/en_2r4pagsgqj.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/glimmers/zlrty8afuk_400x500.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/great-hunny-rescue/en/cards/final/en_uygjnjnuav.png"
-      ]
+      "blurb": "Warning: This page maybe not yet fully loaded, consider explicitly specify a timeout.",
+      "productUrl": "https://www.disneylorcana.com/en-US/product/great-hunny-rescue"
     },
     {
       "code": "15",
@@ -46,17 +37,8 @@
         "promo": 0
       },
       "revealedCount": 0,
-      "blurb": "Every card inside a collector booster sports a beautiful foil, giving each a premium look and feel—and the rarer the card, the more magnificent its treatments and embellishments. Best of all, the likelihood of pulling a rarer Enchanted or Iconic card is much higher than that of a standard booster pack.",
-      "productUrl": "https://www.disneylorcana.com/en-US/product/into-the-inkdark",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/s15-background/sqjdbc9ngl_1920x1080-3.jpg",
-      "gallery": [
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/s15-background/sqjdbc9ngl_1920x1080-3.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/sqjdbc9ngl_1x1-4.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/s15-background/primary_tvmdt6p3df.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/s15-logo/en_jbs83nhsz6.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/s15-logo/en_jbs83nhsz6.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/zmadyrbjhp.png"
-      ]
+      "blurb": "URL Source: http://www.disneylorcana.com/en-US/product/into-the-inkdark",
+      "productUrl": "https://www.disneylorcana.com/en-US/product/into-the-inkdark"
     },
     {
       "code": "16",
