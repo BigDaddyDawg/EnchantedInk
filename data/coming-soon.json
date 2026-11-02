@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-01T19:20:53Z",
+  "generated": "2026-11-02T22:55:52Z",
   "sources": {
     "cards": "LorcanaJSON (https://lorcanajson.org/)",
     "news": "https://www.disneylorcana.com/en-US/news/"
@@ -21,16 +21,7 @@
       },
       "revealedCount": 38,
       "blurb": "This magical willy, nilly, silly old bear glimmer knows that an adventure is always better when taken together. Add a few other Hunny characters to your team and he gives them the sweet treat of extra lore.",
-      "productUrl": "https://www.disneylorcana.com/en-US/product/great-hunny-rescue",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/backrounds/ndvlmcqdex_1920x1080.jpg",
-      "gallery": [
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/backrounds/ndvlmcqdex_1920x1080.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/backrounds/ndvlmcqdex_1080x1350_updated.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/glimmers/zncpy9gvly_400x500.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/cards/en-final/en_2r4pagsgqj.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/iq3-great-hunny-rescue/glimmers/zlrty8afuk_400x500.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/great-hunny-rescue/en/cards/final/en_uygjnjnuav.png"
-      ]
+      "productUrl": "https://www.disneylorcana.com/en-US/product/great-hunny-rescue"
     },
     {
       "code": "15",
@@ -46,17 +37,9 @@
         "promo": 0
       },
       "revealedCount": 0,
-      "blurb": "Every card inside a collector booster sports a beautiful foil, giving each a premium look and feel—and the rarer the card, the more magnificent its treatments and embellishments. Best of all, the likelihood of pulling a rarer Enchanted or Iconic card is much higher than that of a standard booster pack.",
+      "blurb": "In the depths of the Inkdark, one meticulous plotter is devising a most ambitious plan. With his corrupt cohort fanning the flames of ambition, this villainous hothead is intent on becoming Lorcana’s fastest-rising threat. Braving a perilous valley of giant glimmers and cavernous mines, you’ll attempt to siphon off enough of his power to prevent disaster.",
       "productUrl": "https://www.disneylorcana.com/en-US/product/into-the-inkdark",
-      "heroImage": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/s15-background/sqjdbc9ngl_1920x1080-3.jpg",
-      "gallery": [
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/s15-background/sqjdbc9ngl_1920x1080-3.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/sqjdbc9ngl_1x1-4.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/stub-page/s15-background/primary_tvmdt6p3df.jpg",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/s15-logo/en_jbs83nhsz6.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/s15-logo/en_jbs83nhsz6.png",
-        "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s15-into-the-inkdark/zmadyrbjhp.png"
-      ]
+      "releaseLabel": "Feb 12, 2027"
     },
     {
       "code": "16",
@@ -647,150 +630,5 @@
       "isExternalReveal": false
     }
   ],
-  "news": [
-    {
-      "title": "Disney Lorcana TCG Set Release Notes: Hyperia City",
-      "date": "October 8, 2026",
-      "category": "News",
-      "summary": "Welcome to the Disney Lorcana TCG set release notes for Hyperia City",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/s14-set-release-notes/w-lywzamq4hq_1920x1080-2-4.jpg"
-    },
-    {
-      "title": "IT’S ALMOST PRERELEASE",
-      "date": "October 8, 2026",
-      "category": "News",
-      "summary": "The time for fantastical city living is soon upon us.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/10/w-acnbvecgnz_1920x1080.jpg"
-    },
-    {
-      "title": "Ink Drop Deep Dive",
-      "date": "September 29, 2026",
-      "category": "News",
-      "summary": "Ink drops are a new type of temporary ink that you can gather as you play.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-lmryfw5gc4_1920x1080.jpg"
-    },
-    {
-      "title": "Disney Lorcana TCG Products from D23: The Ultimate Disney Fan Event Now Available Online",
-      "date": "October 19, 2026",
-      "category": "News",
-      "summary": "Starting on Saturday, October 31, 2026 at 9am ET and ending on Sunday, November 1, 2026 at 9 p.m. ET",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/bgddhwkvxy_1920x1080.jpg"
-    },
-    {
-      "title": "A Coco Themed Deck",
-      "date": "October 15, 2026",
-      "category": "News",
-      "summary": "to Disney Lorcana Trading Card Game, Disney and Pixar’s Coco!",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/products/s14-hyperia-city/w-iay9pqtvmo_1920x1080-1.jpg"
-    },
-    {
-      "title": "TIMELESS TALES AND TOTALLY-ROCKIN’ TUNES",
-      "date": "October 15, 2026",
-      "category": "News",
-      "summary": "Arriving in just a few days, the stunning Curator’s Collection: Beauty and the Beast Edition and the amazing I2I Foil Playmat will bring more fantastical fun to your next quest.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/10/w-o9odc377nv_1920x1080-1.jpg"
-    },
-    {
-      "title": "Creative Spotlight – Hyperia City",
-      "date": "October 1, 2026",
-      "category": "News",
-      "summary": "Hyperia City is a bustling city with fantastical, whimsical districts and a sparkling nightlife.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/creative-spotlight/w-l3dh2wxlcd_1920x1080.jpg"
-    },
-    {
-      "title": "Get Ready for Some City Living",
-      "date": "September 24, 2026",
-      "category": "News",
-      "summary": "Where metro meets the fantastical",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-aahkpxkw3e_v2_1920x1080.jpg"
-    },
-    {
-      "title": "Disney Lorcana Trading Card Game Heads to Hyperia City",
-      "date": "September 22, 2026",
-      "category": "News",
-      "summary": "Musical Glimmers Enter the Metropolis alongside Favorites from Disney and Pixar’s Coco",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-lywzamq4hq_1920x1080-1.jpg"
-    },
-    {
-      "title": "Six Top Decks for Post-Rotation Core Constructed",
-      "date": "September 21, 2026",
-      "category": "News",
-      "summary": "Rotation has arrived for the second time in the history of the Disney Lorcana Trading Card Game.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-8qy2ytz6ct_1920x1080.jpg"
-    },
-    {
-      "title": "Europe Championship Recap",
-      "date": "September 17, 2026",
-      "category": "Events",
-      "summary": "Poland's Wojciech Złomek takes the golden trophy",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/w-jpffiyd4bi_1920x1080.jpg"
-    },
-    {
-      "title": "North America Championship Recap",
-      "date": "September 3, 2026",
-      "category": "Events",
-      "summary": "Dillon LeDuc takes the trophy with his Amber/Amethyst Deck",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/09/na-champs/w-ppccjvbvth_1920x1080.jpg"
-    },
-    {
-      "title": "Disney Lorcana TCG Announces Digital Game at D23",
-      "date": "August 15, 2026",
-      "category": "News",
-      "summary": "Ravensburger Announces Set Releases, Collector Boosters, and Disney Park Events",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/xrszzevabf_1920x1080_v2.jpg"
-    },
-    {
-      "title": "New Multiplayer Format Open Beta",
-      "date": "August 7, 2026",
-      "category": "News",
-      "summary": "A big announcement about Disney Lorcana.",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/dlc_coconut_gencon_1920x1080.jpg"
-    },
-    {
-      "title": "Learning the Disney Lorcana TCG: Important Beginners Tips",
-      "date": "August 6, 2026",
-      "category": "Gameplay",
-      "summary": "Becoming a better player",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/dlc_beginners-tips_ig_1920x1080.jpg"
-    },
-    {
-      "title": "EVERYTHING YOU NEED TO KNOW ABOUT ROTATION AS A NEW PLAYER",
-      "date": "August 4, 2026",
-      "category": "Gameplay",
-      "summary": "Let’s talk about what rotation means for the Disney Lorcana Trading Card Game",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/08/w-9yrjczjepc_1920x1080.jpg"
-    },
-    {
-      "title": "Attack of the Vine! Survey",
-      "date": "August 3, 2026",
-      "category": "News",
-      "summary": "Take this survey",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/06/attack-of-the-vine-press-release/d6quksm9_1920x1080.jpg"
-    },
-    {
-      "title": "Let’s Scare and Care Together!",
-      "date": "July 31, 2026",
-      "category": "Gameplay",
-      "summary": "Mike Wazowski, Sulley, and more monsters have joined the Disney Lorcana Trading Card Game in Attack of the Vine!",
-      "url": "https://www.disneylorcana.com/en-US/news/",
-      "image": "https://ravensburger.cloud/cms/gallery/lorcana-web/news/2026/07/atv-monsters-inc-deck/w-72j7extbf5_1920x1080.jpg"
-    }
-  ]
+  "news": []
 }
